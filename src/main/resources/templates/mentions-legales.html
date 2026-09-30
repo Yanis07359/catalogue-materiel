@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Mentions légales</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: header}"></header>
+
+<main class="container section">
+    <div class="formulaire texte-legal">
+        <h1>Mentions légales</h1>
+
+        <h2>Éditeur</h2>
+        <p>
+            Nom, adresse et adresse e-mail à compléter.
+        </p>
+
+        <h2>Nature du site</h2>
+        <p>
+            Ce site présente du matériel proposé à la vente.
+            Aucun paiement n’est réalisé directement sur ce site.
+        </p>
+
+        <h2>Plateformes externes</h2>
+        <p>
+            Les transactions peuvent être finalisées sur Vinted ou
+            Leboncoin. Ce site n’est ni affilié ni sponsorisé par ces
+            plateformes.
+        </p>
+    </div>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Modifier une annonce</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<main class="container section">
+    <a th:href="@{/admin/annonces}" class="retour">
+        ← Retour aux annonces
+    </a>
+
+    <form th:action="@{/admin/annonces/enregistrer}"
+          method="post"
+          enctype="multipart/form-data"
+          class="formulaire formulaire-admin">
+
+        <input th:if="${annonce != null}"
+               type="hidden"
+               name="id"
+               th:value="${annonce.id}">
+
+        <input th:if="${annonce != null}"
+               type="hidden"
+               name="photosActuelles"
+               th:value="${annonce.photos}">
+
+        <h1 th:text="${annonce == null}
+            ? 'Nouvelle annonce'
+            : 'Modifier l’annonce'">
+        </h1>
+
+        <label for="titre">Titre *</label>
+        <input id="titre"
+               name="titre"
+               th:value="${annonce != null ? annonce.titre : ''}"
+               required>
+
+        <div class="deux-colonnes">
+            <div>
+                <label for="categorie">Catégorie *</label>
+
+                <select id="categorie"
+                        name="categorie"
+                        required>
+
+                    <option value="Audiovisuel"
+                            th:selected="${annonce != null && annonce.categorie == 'Audiovisuel'}">
+                        Audiovisuel
+                    </option>
+
+                    <option value="Pièce PC"
+                            th:selected="${annonce != null && annonce.categorie == 'Pièce PC'}">
+                        Pièce PC
+                    </option>
+
+                    <option value="Accessoire"
+                            th:selected="${annonce != null && annonce.categorie == 'Accessoire'}">
+                        Accessoire
+                    </option>
+
+                    <option value="Autre"
+                            th:selected="${annonce != null && annonce.categorie == 'Autre'}">
+                        Autre
+                    </option>
+                </select>
+            </div>
+
+            <div>
+                <label for="statut">Statut</label>
+
+                <select id="statut" name="statut">
+                    <option value="DISPONIBLE"
+                            th:selected="${annonce == null || annonce.statut == 'DISPONIBLE'}">
+                        Disponible
+                    </option>
+
+                    <option value="RESERVE"
+                            th:selected="${annonce != null && annonce.statut == 'RESERVE'}">
+                        Réservé
+                    </option>
+
+                    <option value="VENDU"
+                            th:selected="${annonce != null && annonce.statut == 'VENDU'}">
+                        Vendu
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="deux-colonnes">
+            <div>
+                <label for="etat">État *</label>
+                <input id="etat"
+                       name="etat"
+                       th:value="${annonce != null ? annonce.etat : ''}"
+                       placeholder="Très bon état"
+                       required>
+            </div>
+
+            <div>
+                <label for="prix">Prix indicatif *</label>
+                <input id="prix"
+                       type="number"
+                       name="prix"
+                       min="0"
+                       step="0.01"
+                       th:value="${annonce != null ? annonce.prix : ''}"
+                       required>
+            </div>
+        </div>
+
+        <label for="description">Description *</label>
+        <textarea id="description"
+                  name="description"
+                  rows="9"
+                  required
+                  th:text="${annonce != null ? annonce.description : ''}">
+        </textarea>
+
+        <label for="images">
+            Ajouter des photos depuis l’ordinateur
+        </label>
+
+        <input id="images"
+               type="file"
+               name="images"
+               accept="image/*"
+               multiple>
+
+        <label for="photosUrls">
+            Ou ajouter des URL de photos
+        </label>
+
+        <textarea id="photosUrls"
+                  name="photosUrls"
+                  rows="4"
+                  placeholder="Une URL par ligne"></textarea>
+
+        <small>
+            Les nouvelles photos seront ajoutées aux photos existantes.
+        </small>
+
+        <label for="lienVinted">Lien Vinted</label>
+        <input id="lienVinted"
+               type="url"
+               name="lienVinted"
+               th:value="${annonce != null ? annonce.lienVinted : ''}">
+
+        <label for="lienLeboncoin">Lien Leboncoin</label>
+        <input id="lienLeboncoin"
+               type="url"
+               name="lienLeboncoin"
+               th:value="${annonce != null ? annonce.lienLeboncoin : ''}">
+
+        <button type="submit"
+                class="btn btn-primary btn-block">
+            Enregistrer
+        </button>
+    </form>
+</main>
+
+</body>
+</html>

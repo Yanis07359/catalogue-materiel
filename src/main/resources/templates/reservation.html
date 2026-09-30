@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Demande de réservation</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: header}"></header>
+
+<main class="container section reservation-layout">
+    <section>
+        <div class="entete-page">
+            <span class="surtitre">Dernière étape</span>
+            <h1>Demande de réservation</h1>
+        </div>
+
+        <form th:action="@{/reservation}"
+              method="post"
+              class="formulaire">
+
+            <p th:if="${erreur}"
+               class="erreur"
+               th:text="${erreur}">
+            </p>
+
+            <label for="nom">Nom *</label>
+            <input id="nom" name="nom" required>
+
+            <label for="email">Adresse e-mail *</label>
+            <input id="email"
+                   type="email"
+                   name="email"
+                   required>
+
+            <label for="telephone">
+                Téléphone
+            </label>
+            <input id="telephone"
+                   name="telephone">
+
+            <label for="message">Message</label>
+            <textarea id="message"
+                      name="message"
+                      rows="6"></textarea>
+
+            <div class="case">
+                <input id="consentement"
+                       type="checkbox"
+                       name="consentement"
+                       required>
+
+                <label for="consentement">
+                    J’accepte l’utilisation de mes informations pour
+                    traiter cette demande.
+                </label>
+            </div>
+
+            <button class="btn btn-primary btn-block"
+                    type="submit">
+                Envoyer la demande
+            </button>
+        </form>
+    </section>
+
+    <aside class="resume">
+        <h2>Votre sélection</h2>
+
+        <div th:each="annonce : ${annonces}"
+             class="ligne-resume">
+
+            <span th:text="${annonce.titre}"></span>
+            <strong th:text="${annonce.prix + ' €'}"></strong>
+        </div>
+
+        <div class="total">
+            <span>Total indicatif</span>
+            <strong th:text="${total + ' €'}"></strong>
+        </div>
+
+        <p class="petit">
+            Aucun paiement ne sera demandé.
+        </p>
+    </aside>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>

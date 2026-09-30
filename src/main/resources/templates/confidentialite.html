@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Confidentialité</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: header}"></header>
+
+<main class="container section">
+    <div class="formulaire texte-legal">
+        <h1>Politique de confidentialité</h1>
+
+        <h2>Données collectées</h2>
+        <p>
+            Le formulaire peut collecter votre nom, votre adresse
+            e-mail, votre téléphone et votre message.
+        </p>
+
+        <h2>Utilisation</h2>
+        <p>
+            Les données sont utilisées uniquement pour traiter votre
+            demande de réservation.
+        </p>
+
+        <h2>Vos droits</h2>
+        <p>
+            Vous pouvez demander la consultation, la modification ou
+            la suppression de vos informations.
+        </p>
+    </div>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Gestion des annonces</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<main class="container section">
+    <nav class="admin-nav">
+        <a th:href="@{/}">Voir le site</a>
+        <a th:href="@{/admin/annonces}">Annonces</a>
+        <a th:href="@{/admin/reservations}">Réservations</a>
+
+        <form th:action="@{/deconnexion}" method="post">
+            <button class="supprimer" type="submit">
+                Déconnexion
+            </button>
+        </form>
+    </nav>
+
+    <div class="titre-section">
+        <div>
+            <span class="surtitre">Administration</span>
+            <h1>Gestion des annonces</h1>
+        </div>
+
+        <a th:href="@{/admin/annonces/nouvelle}"
+           class="btn btn-primary">
+            Ajouter une annonce
+        </a>
+    </div>
+
+    <div class="tableau">
+        <table>
+            <thead>
+            <tr>
+                <th>Photo</th>
+                <th>Titre</th>
+                <th>Catégorie</th>
+                <th>Prix</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="annonce : ${annonces}">
+                <td>
+                    <img class="miniature"
+                         th:src="${annonce.photoPrincipale()}"
+                         th:alt="${annonce.titre}">
+                </td>
+
+                <td th:text="${annonce.titre}"></td>
+                <td th:text="${annonce.categorie}"></td>
+                <td th:text="${annonce.prix + ' €'}"></td>
+                <td th:text="${annonce.statut}"></td>
+
+                <td class="actions-tableau">
+                    <a th:href="@{/admin/annonces/{id}/modifier(id=${annonce.id})}">
+                        Modifier
+                    </a>
+
+                    <form th:action="@{/admin/annonces/{id}/supprimer(id=${annonce.id})}"
+                          method="post"
+                          onsubmit="return confirm('Supprimer cette annonce ?')">
+
+                        <button type="submit" class="supprimer">
+                            Supprimer
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+</body>
+</html>

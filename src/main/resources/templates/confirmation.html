@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Demande envoyée</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: header}"></header>
+
+<main class="container section">
+    <div class="confirmation">
+        <div class="icone">✓</div>
+
+        <h1>Demande envoyée</h1>
+
+        <p>
+            Merci <strong th:text="${nom}"></strong>.
+            Votre demande a été enregistrée.
+        </p>
+
+        <p>
+            Elle ne constitue pas une vente définitive.
+            La disponibilité du matériel vous sera confirmée.
+        </p>
+
+        <a th:href="@{/catalogue}"
+           class="btn btn-primary">
+            Retour au catalogue
+        </a>
+    </div>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>

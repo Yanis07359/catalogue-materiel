@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Administration</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: header}"></header>
+
+<main class="container section">
+    <form th:action="@{/connexion}"
+          method="post"
+          class="formulaire connexion">
+
+        <h1>Administration</h1>
+
+        <p th:if="${param.error}" class="erreur">
+            Identifiant ou mot de passe incorrect.
+        </p>
+
+        <label for="username">Identifiant</label>
+        <input id="username"
+               name="username"
+               required>
+
+        <label for="password">Mot de passe</label>
+        <input id="password"
+               type="password"
+               name="password"
+               required>
+
+        <button type="submit"
+                class="btn btn-primary btn-block">
+            Se connecter
+        </button>
+    </form>
+</main>
+
+</body>
+</html>

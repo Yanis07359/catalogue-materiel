@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<header th:fragment="header" class="header">
+    <div class="container navigation">
+        <a th:href="@{/}" class="logo">
+            AV<span>Market</span>
+        </a>
+
+        <nav>
+            <a th:href="@{/}">Accueil</a>
+            <a th:href="@{/catalogue}">Catalogue</a>
+            <a th:href="@{/panier}" class="panier">
+                Ma sélection
+                <span th:text="${nombrePanier != null ? nombrePanier : 0}">
+                    0
+                </span>
+            </a>
+        </nav>
+    </div>
+</header>
+
+<footer th:fragment="footer" class="footer">
+    <div class="container footer-grid">
+        <div>
+            <h3>AVMarket</h3>
+            <p>
+                Matériel audiovisuel et composants informatiques.
+            </p>
+        </div>
+
+        <div>
+            <a th:href="@{/mentions-legales}">
+                Mentions légales
+            </a>
+
+            <a th:href="@{/confidentialite}">
+                Confidentialité
+            </a>
+
+            <a th:href="@{/connexion}">
+                Administration
+            </a>
+        </div>
+    </div>
+
+    <p class="avertissement">
+        Aucun paiement n’est réalisé sur ce site.
+        Les transactions sont finalisées sur Vinted ou Leboncoin.
+    </p>
+</footer>
+
+</body>
+</html>

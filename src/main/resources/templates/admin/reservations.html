@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Réservations</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<main class="container section">
+    <nav class="admin-nav">
+        <a th:href="@{/}">Voir le site</a>
+        <a th:href="@{/admin/annonces}">Annonces</a>
+        <a th:href="@{/admin/reservations}">Réservations</a>
+    </nav>
+
+    <div class="entete-page">
+        <span class="surtitre">Administration</span>
+        <h1>Demandes de réservation</h1>
+    </div>
+
+    <div th:if="${#lists.isEmpty(reservations)}"
+         class="message">
+        Aucune demande.
+    </div>
+
+    <article th:each="reservation : ${reservations}"
+             class="reservation-card">
+
+        <div class="reservation-entete">
+            <div>
+                <h2 th:text="${reservation.nom}"></h2>
+
+                <a th:href="'mailto:' + ${reservation.email}"
+                   th:text="${reservation.email}">
+                </a>
+            </div>
+
+            <span class="statut"
+                  th:classappend="${reservation.traitee} ? 'disponible' : 'reserve'"
+                  th:text="${reservation.traitee} ? 'Traitée' : 'À traiter'">
+            </span>
+        </div>
+
+        <p>
+            <strong>Téléphone :</strong>
+            <span th:text="${reservation.telephone}"></span>
+        </p>
+
+        <p><strong>Articles :</strong></p>
+        <pre th:text="${reservation.articles}"></pre>
+
+        <p>
+            <strong>Total indicatif :</strong>
+            <span th:text="${reservation.total_indicatif + ' €'}"></span>
+        </p>
+
+        <p>
+            <strong>Message :</strong>
+            <span th:text="${reservation.message}"></span>
+        </p>
+
+        <div class="actions-tableau">
+            <form th:unless="${reservation.traitee}"
+                  th:action="@{/admin/reservations/{id}/traiter(id=${reservation.id})}"
+                  method="post">
+
+                <button class="btn btn-primary" type="submit">
+                    Marquer comme traitée
+                </button>
+            </form>
+
+            <form th:action="@{/admin/reservations/{id}/supprimer(id=${reservation.id})}"
+                  method="post"
+                  onsubmit="return confirm('Supprimer cette demande ?')">
+
+                <button type="submit" class="supprimer">
+                    Supprimer
+                </button>
+            </form>
+        </div>
+    </article>
+</main>
+
+</body>
+</html>

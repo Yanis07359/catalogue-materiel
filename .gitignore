@@ -1,0 +1,10 @@
+target/
+data/
+uploads/
+*.mv.db
+*.trace.db
+*.zip
+.env
+.idea/
+.vscode/
+*.iml

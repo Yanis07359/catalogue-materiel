@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Ma sélection</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: header}"></header>
+
+<main class="container section">
+    <div class="entete-page">
+        <span class="surtitre">Réservation</span>
+        <h1>Ma sélection</h1>
+    </div>
+
+    <div th:if="${#lists.isEmpty(annonces)}"
+         class="message">
+
+        <h2>Votre sélection est vide</h2>
+
+        <a th:href="@{/catalogue}"
+           class="btn btn-primary">
+            Voir le catalogue
+        </a>
+    </div>
+
+    <div th:unless="${#lists.isEmpty(annonces)}"
+         class="panier-layout">
+
+        <section class="liste-panier">
+            <article th:each="annonce : ${annonces}"
+                     class="article-panier">
+
+                <img th:src="${annonce.photoPrincipale()}"
+                     th:alt="${annonce.titre}">
+
+                <div>
+                    <h2 th:text="${annonce.titre}"></h2>
+                    <p th:text="${annonce.etat}"></p>
+                    <strong th:text="${annonce.prix + ' €'}"></strong>
+                </div>
+
+                <form th:action="@{/panier/supprimer/{id}(id=${annonce.id})}"
+                      method="post">
+
+                    <button type="submit"
+                            class="supprimer">
+                        Supprimer
+                    </button>
+                </form>
+            </article>
+        </section>
+
+        <aside class="resume">
+            <h2>Résumé</h2>
+
+            <div class="total">
+                <span>Total indicatif</span>
+                <strong th:text="${total + ' €'}"></strong>
+            </div>
+
+            <a th:href="@{/reservation}"
+               class="btn btn-primary btn-block">
+                Demander une réservation
+            </a>
+
+            <form th:action="@{/panier/vider}" method="post">
+                <button type="submit"
+                        class="btn btn-outline btn-block">
+                    Vider la sélection
+                </button>
+            </form>
+
+            <p class="petit">
+                Cette sélection n’est pas une commande et ne déclenche
+                aucun paiement.
+            </p>
+        </aside>
+    </div>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>

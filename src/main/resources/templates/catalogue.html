@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Catalogue</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: header}"></header>
+
+<main class="container section">
+    <div class="entete-page">
+        <span class="surtitre">Notre matériel</span>
+        <h1>Catalogue</h1>
+        <p>
+            Découvrez le matériel actuellement disponible.
+        </p>
+    </div>
+
+    <div class="filtres">
+        <a th:href="@{/catalogue}">Tout</a>
+        <a th:href="@{/catalogue(categorie='Audiovisuel')}">
+            Audiovisuel
+        </a>
+        <a th:href="@{/catalogue(categorie='Pièce PC')}">
+            Pièces PC
+        </a>
+        <a th:href="@{/catalogue(categorie='Accessoire')}">
+            Accessoires
+        </a>
+    </div>
+
+    <div th:if="${#lists.isEmpty(annonces)}"
+         class="message">
+        Aucune annonce dans cette catégorie.
+    </div>
+
+    <div class="grille">
+        <article th:each="annonce : ${annonces}"
+                 class="carte">
+
+            <a th:href="@{/annonce/{id}(id=${annonce.id})}">
+                <img th:src="${annonce.photoPrincipale()}"
+                     th:alt="${annonce.titre}">
+            </a>
+
+            <div class="carte-contenu">
+                <span class="categorie"
+                      th:text="${annonce.categorie}">
+                </span>
+
+                <h3 th:text="${annonce.titre}"></h3>
+                <p th:text="${annonce.etat}"></p>
+
+                <div class="prix-statut">
+                    <strong th:text="${annonce.prix + ' €'}"></strong>
+
+                    <span class="statut"
+                          th:classappend="${annonce.statutCss()}"
+                          th:text="${annonce.statut}">
+                    </span>
+                </div>
+
+                <a th:href="@{/annonce/{id}(id=${annonce.id})}"
+                   class="btn btn-outline btn-block">
+                    Voir le matériel
+                </a>
+            </div>
+        </article>
+    </div>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>
