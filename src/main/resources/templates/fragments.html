@@ -4,13 +4,21 @@
 
 <header th:fragment="header" class="header">
     <div class="container navigation">
-        <a th:href="@{/}" class="logo">
-            AV<span>Market</span>
+
+        <a th:href="@{/}" class="yns-logo">
+            <img th:src="@{/images/logo-yns.png}"
+                 src="/images/logo-yns.png"
+                 alt="Logo YNS Equipements">
+
+            <span>
+                <strong>YNS</strong> EQUIPEMENTS
+            </span>
         </a>
 
         <nav>
             <a th:href="@{/}">Accueil</a>
             <a th:href="@{/catalogue}">Catalogue</a>
+
             <a th:href="@{/panier}" class="panier">
                 Ma sélection
                 <span th:text="${nombrePanier != null ? nombrePanier : 0}">
@@ -18,16 +26,15 @@
                 </span>
             </a>
         </nav>
+
     </div>
 </header>
 
 <footer th:fragment="footer" class="footer">
     <div class="container footer-grid">
         <div>
-            <h3>AVMarket</h3>
-            <p>
-                Matériel audiovisuel et composants informatiques.
-            </p>
+            <h3>YNS Equipements</h3>
+            <p>Audiovisuel • Informatique • Mobilité</p>
         </div>
 
         <div>
