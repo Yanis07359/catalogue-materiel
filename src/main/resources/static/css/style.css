@@ -1652,3 +1652,22 @@ pre {
         font-size: 0.92rem;
     }
 }
+
+/* Carte Subito */
+.yns-social-card--subito .yns-social-card__icon {
+    background: #f9423a;
+    color: #ffffff;
+}
+
+.yns-subito-letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 900;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+}
