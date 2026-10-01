@@ -60,11 +60,23 @@
             </div>
 
             <div class="actions">
+
+                <form th:if="${annonce.statut == 'DISPONIBLE'}"
+                      th:action="@{/reservation/directe/{id}(id=${annonce.id})}"
+                      method="post">
+
+                    <button class="btn btn-primary btn-block"
+                            type="submit">
+                        Réserver maintenant
+                    </button>
+                </form>
+
+
                 <form th:if="${annonce.statut == 'DISPONIBLE'}"
                       th:action="@{/panier/ajouter/{id}(id=${annonce.id})}"
                       method="post">
 
-                    <button class="btn btn-primary btn-block"
+                    <button class="btn btn-outline btn-block"
                             type="submit">
                         Ajouter à ma sélection
                     </button>

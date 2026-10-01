@@ -21,12 +21,10 @@
     <div class="formulaire texte-legal">
         <h1>Mentions légales</h1>
 
-        <h2>Editeur du site</h2>
-<p>
-    <strong>Nom :</strong> Djafour Yanis<br>
-    <strong>Email :</strong>
-    <a href="mailto:yanisroum01@gmail.com">yanisroum01@gmail.com</a>
-</p>
+        <h2>Éditeur</h2>
+        <p>
+            Nom, adresse et adresse e-mail à compléter.
+        </p>
 
         <h2>Nature du site</h2>
         <p>

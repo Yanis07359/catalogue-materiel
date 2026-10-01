@@ -88,6 +88,32 @@ public class SiteController {
         return "redirect:/panier";
     }
 
+
+    @PostMapping("/reservation/directe/{id}")
+    public String reservationDirecte(
+            @PathVariable Long id,
+            HttpSession session
+    ) {
+        Annonce annonce = annonceStore.findById(id)
+                .orElseThrow(() ->
+                    new IllegalArgumentException(
+                        "Annonce introuvable."
+                    )
+                );
+
+        if (!"DISPONIBLE".equals(annonce.statut())) {
+            return "redirect:/annonce/" + id;
+        }
+
+        List<Long> panier = panierIds(session);
+
+        // La réservation directe concerne uniquement cette annonce.
+        panier.clear();
+        panier.add(id);
+
+        return "redirect:/reservation";
+    }
+
     @PostMapping("/panier/supprimer/{id}")
     public String supprimerPanier(
             @PathVariable Long id,
