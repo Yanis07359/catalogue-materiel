@@ -35,6 +35,13 @@
                name="photosActuelles"
                th:value="${annonce.photos}">
 
+        
+        <div th:if="${erreur}"
+             class="information erreur-formulaire"
+             th:text="${erreur}">
+            Erreur lors de l'enregistrement.
+        </div>
+
         <h1 th:text="${annonce == null}
             ? 'Nouvelle annonce'
             : 'Modifier l’annonce'">

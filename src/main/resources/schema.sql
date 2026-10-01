@@ -4,11 +4,11 @@ CREATE TABLE IF NOT EXISTS annonces (
     categorie VARCHAR(100) NOT NULL,
     etat VARCHAR(100) NOT NULL,
     prix DECIMAL(10, 2) NOT NULL,
-    description CLOB NOT NULL,
+    description TEXT NOT NULL,
     statut VARCHAR(30) NOT NULL,
     lien_vinted VARCHAR(1000),
     lien_leboncoin VARCHAR(1000),
-    photos CLOB
+    photos TEXT
 );
 
 CREATE TABLE IF NOT EXISTS reservations (
@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS reservations (
     nom VARCHAR(150) NOT NULL,
     email VARCHAR(255) NOT NULL,
     telephone VARCHAR(50),
-    message CLOB,
-    articles CLOB NOT NULL,
+    message TEXT,
+    articles TEXT NOT NULL,
     total_indicatif DECIMAL(10, 2),
     date_demande TIMESTAMP NOT NULL,
     traitee BOOLEAN DEFAULT FALSE

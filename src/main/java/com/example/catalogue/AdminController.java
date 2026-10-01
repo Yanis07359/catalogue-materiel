@@ -7,12 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Controller
 @RequestMapping("/admin")
@@ -20,13 +16,16 @@ public class AdminController {
 
     private final AnnonceStore annonceStore;
     private final ReservationStore reservationStore;
+    private final ImageStorageService imageStorageService;
 
     public AdminController(
             AnnonceStore annonceStore,
-            ReservationStore reservationStore
+            ReservationStore reservationStore,
+            ImageStorageService imageStorageService
     ) {
         this.annonceStore = annonceStore;
         this.reservationStore = reservationStore;
+        this.imageStorageService = imageStorageService;
     }
 
     @GetMapping
@@ -36,13 +35,22 @@ public class AdminController {
 
     @GetMapping("/annonces")
     public String annonces(Model model) {
-        model.addAttribute("annonces", annonceStore.findAll());
+        model.addAttribute(
+            "annonces",
+            annonceStore.findAll()
+        );
+
         return "admin/annonces";
     }
 
     @GetMapping("/annonces/nouvelle")
     public String nouvelleAnnonce(Model model) {
         model.addAttribute("annonce", null);
+        model.addAttribute(
+            "cloudinaryActif",
+            imageStorageService.utiliseCloudinary()
+        );
+
         return "admin/annonce-form";
     }
 
@@ -53,10 +61,17 @@ public class AdminController {
     ) {
         Annonce annonce = annonceStore.findById(id)
                 .orElseThrow(() ->
-                    new IllegalArgumentException("Annonce introuvable")
+                    new IllegalArgumentException(
+                        "Annonce introuvable."
+                    )
                 );
 
         model.addAttribute("annonce", annonce);
+        model.addAttribute(
+            "cloudinaryActif",
+            imageStorageService.utiliseCloudinary()
+        );
+
         return "admin/annonce-form";
     }
 
@@ -73,78 +88,84 @@ public class AdminController {
             @RequestParam(required = false) String lienLeboncoin,
             @RequestParam(required = false) String photosUrls,
             @RequestParam(required = false) String photosActuelles,
-            @RequestParam(required = false) MultipartFile[] images
-    ) throws IOException {
+            @RequestParam(required = false) MultipartFile[] images,
+            Model model
+    ) {
+        try {
+            List<String> photos = new ArrayList<>();
 
-        List<String> photos = new ArrayList<>();
-
-        if (photosActuelles != null && !photosActuelles.isBlank()) {
-            photos.addAll(
-                photosActuelles.lines()
-                    .map(String::trim)
-                    .filter(s -> !s.isBlank())
-                    .toList()
+            ajouterUrls(
+                photos,
+                photosActuelles
             );
-        }
 
-        if (photosUrls != null && !photosUrls.isBlank()) {
-            photos.addAll(
-                photosUrls.lines()
-                    .map(String::trim)
-                    .filter(s -> !s.isBlank())
-                    .toList()
+            ajouterUrls(
+                photos,
+                photosUrls
             );
-        }
 
-        if (images != null) {
-            Path dossier = Path.of("uploads");
-            Files.createDirectories(dossier);
+            if (images != null) {
+                for (MultipartFile image : images) {
+                    if (image == null || image.isEmpty()) {
+                        continue;
+                    }
 
-            for (MultipartFile image : images) {
-                if (image == null || image.isEmpty()) {
-                    continue;
+                    String imageUrl =
+                        imageStorageService.enregistrer(image);
+
+                    photos.add(imageUrl);
                 }
-
-                String original = image.getOriginalFilename();
-                String extension = "";
-
-                if (original != null && original.contains(".")) {
-                    extension = original.substring(
-                        original.lastIndexOf(".")
-                    );
-                }
-
-                String nomFichier =
-                    UUID.randomUUID() + extension.toLowerCase();
-
-                Files.copy(
-                    image.getInputStream(),
-                    dossier.resolve(nomFichier),
-                    StandardCopyOption.REPLACE_EXISTING
-                );
-
-                photos.add("/uploads/" + nomFichier);
             }
+
+            annonceStore.save(
+                id,
+                titre.trim(),
+                categorie,
+                etat.trim(),
+                prix,
+                description.trim(),
+                statut,
+                valeurOuVide(lienVinted),
+                valeurOuVide(lienLeboncoin),
+                String.join("\n", photos)
+            );
+
+            return "redirect:/admin/annonces";
+
+        } catch (IOException |
+                 IllegalArgumentException exception) {
+
+            Annonce annonce = new Annonce(
+                id,
+                titre,
+                categorie,
+                etat,
+                prix,
+                description,
+                statut,
+                valeurOuVide(lienVinted),
+                valeurOuVide(lienLeboncoin),
+                valeurOuVide(photosActuelles)
+            );
+
+            model.addAttribute("annonce", annonce);
+            model.addAttribute(
+                "erreur",
+                exception.getMessage()
+            );
+            model.addAttribute(
+                "cloudinaryActif",
+                imageStorageService.utiliseCloudinary()
+            );
+
+            return "admin/annonce-form";
         }
-
-        annonceStore.save(
-            id,
-            titre,
-            categorie,
-            etat,
-            prix,
-            description,
-            statut,
-            lienVinted == null ? "" : lienVinted,
-            lienLeboncoin == null ? "" : lienLeboncoin,
-            String.join("\n", photos)
-        );
-
-        return "redirect:/admin/annonces";
     }
 
     @PostMapping("/annonces/{id}/supprimer")
-    public String supprimerAnnonce(@PathVariable Long id) {
+    public String supprimerAnnonce(
+            @PathVariable Long id
+    ) {
         annonceStore.delete(id);
         return "redirect:/admin/annonces";
     }
@@ -160,14 +181,41 @@ public class AdminController {
     }
 
     @PostMapping("/reservations/{id}/traiter")
-    public String traiterReservation(@PathVariable Long id) {
+    public String traiterReservation(
+            @PathVariable Long id
+    ) {
         reservationStore.marquerTraitee(id);
         return "redirect:/admin/reservations";
     }
 
     @PostMapping("/reservations/{id}/supprimer")
-    public String supprimerReservation(@PathVariable Long id) {
+    public String supprimerReservation(
+            @PathVariable Long id
+    ) {
         reservationStore.delete(id);
         return "redirect:/admin/reservations";
+    }
+
+    private void ajouterUrls(
+            List<String> photos,
+            String texte
+    ) {
+        if (texte == null || texte.isBlank()) {
+            return;
+        }
+
+        texte.lines()
+            .map(String::trim)
+            .filter(url -> !url.isBlank())
+            .filter(url ->
+                url.startsWith("https://") ||
+                url.startsWith("http://") ||
+                url.startsWith("/uploads/")
+            )
+            .forEach(photos::add);
+    }
+
+    private String valeurOuVide(String valeur) {
+        return valeur == null ? "" : valeur.trim();
     }
 }

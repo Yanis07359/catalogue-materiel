@@ -1019,3 +1019,10 @@ pre {
         padding-top: 6px;
     }
 }
+
+.erreur-formulaire {
+    margin: 0 0 20px;
+    background: #fef2f2;
+    color: #991b1b;
+    border-color: #fecaca;
+}
