@@ -1615,3 +1615,40 @@ pre {
     }
 }
 /* PRESENTATION-V4-FIN */
+
+
+/* Petit commentaire sur la sélection des produits */
+.yns-selection-note {
+    max-width: 850px;
+    margin: 24px auto;
+    padding: 18px 22px;
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+    background: rgba(37, 99, 235, 0.08);
+    color: inherit;
+    text-align: left;
+}
+
+.yns-selection-note strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #2563eb;
+    font-size: 1rem;
+}
+
+.yns-selection-note p {
+    margin: 0;
+    line-height: 1.7;
+    font-size: 0.96rem;
+}
+
+@media (max-width: 600px) {
+    .yns-selection-note {
+        margin: 18px 0;
+        padding: 15px 17px;
+    }
+
+    .yns-selection-note p {
+        font-size: 0.92rem;
+    }
+}
