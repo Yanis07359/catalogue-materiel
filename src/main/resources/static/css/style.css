@@ -3003,3 +3003,211 @@ body.yns-lightbox-open {
     transform: translateY(-2px);
     box-shadow: 0 14px 28px rgba(138, 87, 15, 0.32) !important;
 }
+
+
+/* MENU DEROULANT DU SITE PUBLIC */
+.yns-site-menu {
+    position: relative;
+    margin-left: auto;
+    z-index: 1000;
+}
+
+.yns-site-menu summary {
+    display: inline-flex;
+    min-width: 125px;
+    min-height: 48px;
+    padding: 12px 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    color: #ffffff;
+    background: linear-gradient(135deg, #176b87, #0b1f33);
+    border: 1px solid rgba(125, 211, 252, 0.35);
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.20);
+    cursor: pointer;
+    font-weight: 800;
+    user-select: none;
+}
+
+.yns-site-menu summary::-webkit-details-marker {
+    display: none;
+}
+
+.yns-site-menu summary:hover,
+.yns-site-menu[open] summary {
+    background: linear-gradient(135deg, #1d829f, #102c49);
+}
+
+.navigation .yns-site-menu-content {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    z-index: 2000;
+    display: flex;
+    width: 280px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    overflow: visible;
+    background: #ffffff;
+    border: 1px solid #dbe3ee;
+    border-radius: 14px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.25);
+}
+
+.navigation .yns-site-menu-content a {
+    display: flex;
+    min-height: 46px;
+    padding: 11px 14px;
+    align-items: center;
+    color: #1f2937;
+    border-radius: 9px;
+    font-weight: 700;
+    white-space: normal;
+}
+
+.navigation .yns-site-menu-content a:hover {
+    color: #176b87;
+    background: #eef8fb;
+}
+
+.navigation .yns-site-menu-content .panier {
+    justify-content: space-between;
+}
+
+.navigation .yns-site-menu-content .panier span {
+    margin-left: 10px;
+}
+
+.navigation .yns-site-menu-content .yns-menu-label {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    color: #1f2937;
+    background: transparent;
+    font-size: inherit;
+}
+
+@media (max-width: 650px) {
+    .yns-site-menu {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .yns-site-menu summary {
+        width: 100%;
+    }
+
+    .navigation .yns-site-menu-content {
+        right: auto;
+        left: 0;
+        width: 100%;
+    }
+}
+
+
+/* MENU PUBLIC V2 - DEBUT */
+
+.yns-public-menu {
+    position: relative;
+    z-index: 5000;
+    margin-left: auto;
+}
+
+.yns-public-menu summary {
+    display: flex;
+    min-width: 125px;
+    min-height: 48px;
+    padding: 12px 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    color: #ffffff;
+    background: #176b87;
+    border: 1px solid #38a3c4;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 800;
+    user-select: none;
+}
+
+.yns-public-menu summary::-webkit-details-marker {
+    display: none;
+}
+
+.yns-public-menu summary:hover,
+.yns-public-menu[open] summary {
+    background: #2188a7;
+}
+
+.navigation nav.yns-public-menu-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 6000;
+    display: flex;
+    width: 290px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    background: #ffffff;
+    border: 1px solid #dbe3ee;
+    border-radius: 12px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+.navigation nav.yns-public-menu-panel a {
+    display: flex;
+    min-height: 46px;
+    padding: 12px 14px;
+    align-items: center;
+    color: #172033;
+    border-radius: 8px;
+    font-weight: 700;
+    white-space: normal;
+}
+
+.navigation nav.yns-public-menu-panel a:hover {
+    color: #176b87;
+    background: #eef8fb;
+}
+
+.navigation nav.yns-public-menu-panel .panier {
+    justify-content: space-between;
+}
+
+.navigation nav.yns-public-menu-panel .yns-menu-text {
+    display: inline;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    background: transparent;
+    border-radius: 0;
+    font-size: inherit;
+}
+
+@media (max-width: 650px) {
+    .navigation {
+        gap: 15px;
+    }
+
+    .yns-public-menu summary {
+        min-width: auto;
+        padding: 11px 15px;
+    }
+
+    .navigation nav.yns-public-menu-panel {
+        right: 0;
+        width: min(290px, calc(100vw - 30px));
+    }
+}
+
+/* MENU PUBLIC V2 - FIN */

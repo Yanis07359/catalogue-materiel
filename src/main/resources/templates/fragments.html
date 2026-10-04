@@ -7,6 +7,7 @@
         style="background-color: #0b1f33 !important;
                background-image: none !important;
                border-bottom: 1px solid #193b5a !important;">
+
     <div class="container navigation">
 
         <a th:href="@{/}" class="yns-logo">
@@ -19,22 +20,34 @@
             </span>
         </a>
 
-        <nav>
-            <a th:href="@{/}">Accueil</a>
-            <a th:href="@{/catalogue}">Catalogue</a>
+        <details class="yns-public-menu">
+            <summary>
+                <span aria-hidden="true">☰</span>
+                <span>Menu</span>
+            </summary>
 
-            <a th:href="@{/recherche-produit}">
-                Je recherche un produit
-            </a>
+            <nav class="yns-public-menu-panel">
+                <a th:href="@{/}">
+                    🏠 Accueil
+                </a>
 
+                <a th:href="@{/catalogue}">
+                    📦 Catalogue
+                </a>
 
-            <a th:href="@{/panier}" class="panier">
-                Ma sélection
-                <span th:text="${nombrePanier != null ? nombrePanier : 0}">
-                    0
-                </span>
-            </a>
-        </nav>
+                <a th:href="@{/recherche-produit}">
+                    🔍 Je recherche un produit
+                </a>
+
+                <a th:href="@{/panier}" class="panier">
+                    <span class="yns-menu-text">🛒 Ma sélection</span>
+
+                    <span th:text="${nombrePanier != null ? nombrePanier : 0}">
+                        0
+                    </span>
+                </a>
+            </nav>
+        </details>
 
     </div>
 </header>
@@ -55,6 +68,7 @@
                 Confidentialité
             </a>
 
+            <a th:href="@{/admin}">
                 Administration
             </a>
         </div>
