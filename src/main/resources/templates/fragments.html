@@ -2,7 +2,8 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <body>
 
-<header th:fragment="header" class="header yns-site-header">
+<header th:fragment="header"
+        class="header yns-site-header">
 
     <div class="container navigation yns-public-navigation">
 
@@ -16,11 +17,38 @@
             </span>
         </a>
 
-        <div class="yns-header-actions">
+        <!-- NAVIGATION PC -->
+        <nav class="yns-desktop-nav">
+            <a th:href="@{/}">
+                Accueil
+            </a>
+
+            <a th:href="@{/catalogue}">
+                Catalogue
+            </a>
+
+            <a th:href="@{/recherche-produit}">
+                Je recherche un produit
+            </a>
+
+            <a th:href="@{/panier}"
+               class="yns-desktop-selection">
+
+                <span>Ma sélection</span>
+
+                <span class="yns-desktop-selection-count"
+                      th:text="${nombrePanier != null ? nombrePanier : 0}">
+                    0
+                </span>
+            </a>
+        </nav>
+
+        <!-- NAVIGATION TÉLÉPHONE -->
+        <div class="yns-header-actions yns-mobile-nav">
 
             <details class="yns-public-menu">
                 <summary>
-                    <span>Menu</span>
+                    Menu
                 </summary>
 
                 <nav class="yns-public-menu-panel">
@@ -38,7 +66,9 @@
                 </nav>
             </details>
 
-            <a th:href="@{/panier}" class="yns-selection-link">
+            <a th:href="@{/panier}"
+               class="yns-selection-link">
+
                 <span>Ma sélection</span>
 
                 <span class="yns-selection-count"
@@ -51,14 +81,16 @@
 
     </div>
 
-    <script th:src="@{/js/mobile-header.js(v=1791130297)}"
-            src="/js/mobile-header.js?v=1791130297"
+    <script th:src="@{/js/mobile-header.js(v=1791131118)}"
+            src="/js/mobile-header.js?v=1791131118"
             defer></script>
 
 </header>
 
 <footer th:fragment="footer" class="footer">
+
     <div class="container footer-grid">
+
         <div>
             <h3>YNS Equipements</h3>
             <p>Audiovisuel • Informatique • Mobilité</p>
@@ -77,12 +109,14 @@
                 Administration
             </a>
         </div>
+
     </div>
 
     <p class="avertissement">
         Aucun paiement n’est réalisé sur ce site.
         Les transactions sont finalisées sur Vinted ou Leboncoin.
     </p>
+
 </footer>
 
 </body>

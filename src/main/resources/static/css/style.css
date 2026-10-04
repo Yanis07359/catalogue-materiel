@@ -4293,3 +4293,292 @@ nav.yns-public-menu-panel > a:hover {
 }
 
 /* YNS-FICHE-ANNONCE-MOBILE-FIN */
+
+
+/* YNS-NAVIGATION-RESPONSIVE-FINALE-DEBUT */
+
+.yns-site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 5000 !important;
+    background: #0b1f33 !important;
+    background-image: none !important;
+    border-bottom: 1px solid #193b5a !important;
+    box-shadow: 0 8px 25px rgba(4, 15, 28, 0.20) !important;
+}
+
+.yns-public-navigation {
+    min-height: 76px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 25px !important;
+}
+
+.yns-site-header .yns-logo {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    gap: 10px !important;
+    color: #ffffff !important;
+}
+
+.yns-site-header .yns-logo img {
+    width: 49px !important;
+    height: 49px !important;
+    object-fit: contain !important;
+}
+
+.yns-site-header .yns-logo strong {
+    color: #54b6d5 !important;
+}
+
+/* ==================================================
+   VERSION PC
+   ================================================== */
+
+.yns-desktop-nav {
+    display: flex !important;
+    margin-left: auto !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+    overflow: visible !important;
+}
+
+.yns-desktop-nav > a {
+    display: inline-flex !important;
+    min-height: 42px !important;
+    padding: 9px 12px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #e6f1f8 !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 8px !important;
+    font-size: 0.84rem !important;
+    font-weight: 650 !important;
+    white-space: nowrap !important;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease !important;
+}
+
+.yns-desktop-nav > a:hover {
+    color: #ffffff !important;
+    background: #143550 !important;
+    border-color: #29516d !important;
+}
+
+.yns-desktop-nav > .yns-desktop-selection {
+    gap: 8px !important;
+    color: #ffffff !important;
+    background: #176b87 !important;
+    border-color: #2586a5 !important;
+    font-weight: 750 !important;
+}
+
+.yns-desktop-nav > .yns-desktop-selection:hover {
+    background: #2188a7 !important;
+    border-color: #54b6d5 !important;
+}
+
+.yns-desktop-selection-count {
+    display: inline-flex !important;
+    min-width: 22px !important;
+    height: 22px !important;
+    margin: 0 !important;
+    padding: 0 6px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #0b1f33 !important;
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    font-size: 0.7rem !important;
+    font-weight: 800 !important;
+}
+
+/* Navigation mobile cachée sur PC */
+.yns-mobile-nav {
+    display: none !important;
+}
+
+/* ==================================================
+   VERSION TÉLÉPHONE
+   ================================================== */
+
+@media (max-width: 650px) {
+
+    .yns-public-navigation {
+        width: calc(100% - 20px) !important;
+        min-height: 56px !important;
+        padding: 7px 0 !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 7px !important;
+    }
+
+    /* Navigation PC cachée sur téléphone */
+    .yns-desktop-nav {
+        display: none !important;
+    }
+
+    .yns-site-header .yns-logo {
+        width: auto !important;
+        flex: 0 0 auto !important;
+        gap: 0 !important;
+    }
+
+    .yns-site-header .yns-logo img {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .yns-site-header .yns-logo > span {
+        display: none !important;
+    }
+
+    /* Afficher Menu et Ma sélection */
+    .yns-mobile-nav {
+        position: static !important;
+        width: auto !important;
+        margin-left: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 6px !important;
+        transform: none !important;
+    }
+
+    .yns-public-menu {
+        position: relative !important;
+        display: block !important;
+        margin: 0 !important;
+    }
+
+    .yns-public-menu > summary {
+        display: inline-flex !important;
+        min-width: 76px !important;
+        min-height: 38px !important;
+        padding: 7px 10px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        color: #ffffff !important;
+        background: transparent !important;
+        border: 1px solid #3d718c !important;
+        border-radius: 7px !important;
+        cursor: pointer !important;
+        font-size: 0.78rem !important;
+        font-weight: 700 !important;
+        list-style: none !important;
+    }
+
+    .yns-public-menu > summary::-webkit-details-marker {
+        display: none !important;
+    }
+
+    .yns-public-menu > summary::after {
+        content: "" !important;
+        width: 6px !important;
+        height: 6px !important;
+        margin-top: -3px !important;
+        border-right: 2px solid #7dd3fc !important;
+        border-bottom: 2px solid #7dd3fc !important;
+        transform: rotate(45deg) !important;
+    }
+
+    .yns-public-menu[open] > summary {
+        background: #143550 !important;
+        border-color: #54b6d5 !important;
+    }
+
+    .yns-public-menu[open] > summary::after {
+        margin-top: 3px !important;
+        transform: rotate(225deg) !important;
+    }
+
+    .yns-public-menu-panel {
+        position: fixed !important;
+        top: 62px !important;
+        right: 10px !important;
+        left: 10px !important;
+        z-index: 6000 !important;
+        display: flex !important;
+        width: auto !important;
+        padding: 8px !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 4px !important;
+        background: #102a43 !important;
+        border: 1px solid #29516d !important;
+        border-radius: 10px !important;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.32) !important;
+        transform: none !important;
+    }
+
+    .yns-public-menu-panel::before {
+        display: none !important;
+    }
+
+    .yns-public-menu-panel > a {
+        display: block !important;
+        width: 100% !important;
+        min-height: 42px !important;
+        padding: 11px 13px !important;
+        color: #e6f1f8 !important;
+        background: transparent !important;
+        border-radius: 7px !important;
+        font-size: 0.82rem !important;
+        font-weight: 650 !important;
+        text-align: left !important;
+    }
+
+    .yns-public-menu-panel > a:hover,
+    .yns-public-menu-panel > a:active {
+        color: #ffffff !important;
+        background: #176b87 !important;
+    }
+
+    .yns-selection-link {
+        display: inline-flex !important;
+        min-height: 38px !important;
+        padding: 7px 10px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        color: #ffffff !important;
+        background: transparent !important;
+        border: 1px solid #3d718c !important;
+        border-radius: 7px !important;
+        font-size: 0.74rem !important;
+        font-weight: 700 !important;
+        white-space: nowrap !important;
+    }
+
+    .yns-selection-link:hover,
+    .yns-selection-link:active {
+        color: #ffffff !important;
+        background: #143550 !important;
+        border-color: #54b6d5 !important;
+    }
+
+    .yns-selection-count {
+        display: inline-flex !important;
+        min-width: 19px !important;
+        height: 19px !important;
+        margin: 0 !important;
+        padding: 0 5px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #0b1f33 !important;
+        background: #7dd3fc !important;
+        border-radius: 20px !important;
+        font-size: 0.67rem !important;
+        font-weight: 800 !important;
+    }
+}
+
+/* YNS-NAVIGATION-RESPONSIVE-FINALE-FIN */
