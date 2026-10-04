@@ -2,13 +2,9 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <body>
 
-<header th:fragment="header"
-        class="header"
-        style="background-color: #0b1f33 !important;
-               background-image: none !important;
-               border-bottom: 1px solid #193b5a !important;">
+<header th:fragment="header" class="header yns-site-header">
 
-    <div class="container navigation">
+    <div class="container navigation yns-public-navigation">
 
         <a th:href="@{/}" class="yns-logo">
             <img th:src="@{/images/logo-yns.png(v=1791073844)}"
@@ -20,34 +16,38 @@
             </span>
         </a>
 
-        <details class="yns-public-menu">
-            <summary>
-                <span aria-hidden="true">☰</span>
-                <span>Menu</span>
-            </summary>
+        <div class="yns-header-actions">
 
-            <nav class="yns-public-menu-panel">
-                <a th:href="@{/}">
-                    🏠 Accueil
-                </a>
+            <details class="yns-public-menu">
+                <summary>
+                    <span>Menu</span>
+                </summary>
 
-                <a th:href="@{/catalogue}">
-                    📦 Catalogue
-                </a>
+                <nav class="yns-public-menu-panel">
+                    <a th:href="@{/}">
+                        Accueil
+                    </a>
 
-                <a th:href="@{/recherche-produit}">
-                    🔍 Je recherche un produit
-                </a>
+                    <a th:href="@{/catalogue}">
+                        Catalogue
+                    </a>
 
-                <a th:href="@{/panier}" class="panier">
-                    <span class="yns-menu-text">🛒 Ma sélection</span>
+                    <a th:href="@{/recherche-produit}">
+                        Je recherche un produit
+                    </a>
+                </nav>
+            </details>
 
-                    <span th:text="${nombrePanier != null ? nombrePanier : 0}">
-                        0
-                    </span>
-                </a>
-            </nav>
-        </details>
+            <a th:href="@{/panier}" class="yns-selection-link">
+                <span>Ma sélection</span>
+
+                <span class="yns-selection-count"
+                      th:text="${nombrePanier != null ? nombrePanier : 0}">
+                    0
+                </span>
+            </a>
+
+        </div>
 
     </div>
 </header>
