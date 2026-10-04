@@ -7,11 +7,11 @@
     <title>Catalogue</title>
     <link rel="stylesheet" th:href="@{/css/style.css(v=10)}">
     <link rel="icon" type="image/png"
-          th:href="@{/favicon.png}"
-          href="/favicon.png">
+          th:href="@{/favicon.png(v=1791073844)}"
+          href="/favicon.png?v=1791073844">
     <link rel="apple-touch-icon"
-          th:href="@{/favicon.png}"
-          href="/favicon.png">
+          th:href="@{/favicon.png(v=1791073844)}"
+          href="/favicon.png?v=1791073844">
 </head>
 <body>
 
@@ -34,10 +34,15 @@
         <a th:href="@{/catalogue(categorie='Pièce PC')}">
             Pièces PC
         </a>
-        <a th:href="@{/catalogue(categorie='Accessoire')}">
-            Accessoires
+        <a th:href="@{/catalogue(categorie='Cyclisme')}">
+            Cyclisme
         </a>
-    </div>
+    
+            <a th:href="@{/catalogue(categorie='Autre')}"
+               th:classappend="${categorie == 'Autre'} ? 'actif'">
+                Autre
+            </a>
+</div>
 
     <div th:if="${#lists.isEmpty(annonces)}"
          class="message">

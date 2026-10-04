@@ -7,11 +7,11 @@
     <title>Modifier une annonce</title>
     <link rel="stylesheet" th:href="@{/css/style.css(v=10)}">
     <link rel="icon" type="image/png"
-          th:href="@{/favicon.png}"
-          href="/favicon.png">
+          th:href="@{/favicon.png(v=1791073844)}"
+          href="/favicon.png?v=1791073844">
     <link rel="apple-touch-icon"
-          th:href="@{/favicon.png}"
-          href="/favicon.png">
+          th:href="@{/favicon.png(v=1791073844)}"
+          href="/favicon.png?v=1791073844">
 </head>
 <body>
 
@@ -71,9 +71,9 @@
                         Pièce PC
                     </option>
 
-                    <option value="Accessoire"
-                            th:selected="${annonce != null && annonce.categorie == 'Accessoire'}">
-                        Accessoire
+                    <option value="Cyclisme"
+                            th:selected="${annonce != null && annonce.categorie == 'Cyclisme'}">
+                        Cyclisme
                     </option>
 
                     <option value="Autre"
