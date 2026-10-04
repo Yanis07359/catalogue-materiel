@@ -4021,3 +4021,116 @@ nav.yns-public-menu-panel > a:hover {
 }
 
 /* YNS-MOBILE-DETAIL-ENGAGEMENTS-FIN */
+
+
+/* YNS-NAVIGATION-PC-SANS-MENU-DEBUT */
+
+/*
+ * À partir de 651 px :
+ * les liens sont directement affichés dans la barre.
+ * Le bouton Menu reste réservé au téléphone.
+ */
+@media (min-width: 651px) {
+
+    .yns-public-navigation {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    .yns-header-actions {
+        position: static !important;
+        width: auto !important;
+        margin-left: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 10px !important;
+        transform: none !important;
+    }
+
+    .yns-public-menu {
+        position: static !important;
+        display: block !important;
+        margin: 0 !important;
+    }
+
+    /* Cacher le bouton Menu sur PC */
+    .yns-public-menu > summary {
+        display: none !important;
+    }
+
+    /* Afficher les liens même lorsque details est fermé */
+    .yns-public-menu > .yns-public-menu-panel,
+    .yns-public-menu:not([open]) > .yns-public-menu-panel,
+    .yns-public-navigation nav.yns-public-menu-panel {
+        position: static !important;
+        display: flex !important;
+        width: auto !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 7px !important;
+        overflow: visible !important;
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+
+    .yns-public-navigation nav.yns-public-menu-panel::before {
+        display: none !important;
+    }
+
+    /* Style des liens de navigation sur PC */
+    .yns-site-header
+    .yns-public-navigation
+    nav.yns-public-menu-panel > a {
+        display: inline-flex !important;
+        width: auto !important;
+        min-height: 43px !important;
+        padding: 10px 14px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #e6f1f8 !important;
+        background: transparent !important;
+        border: 1px solid transparent !important;
+        border-radius: 8px !important;
+        font-size: 0.87rem !important;
+        font-weight: 650 !important;
+        text-align: center !important;
+        white-space: nowrap !important;
+    }
+
+    .yns-site-header
+    .yns-public-navigation
+    nav.yns-public-menu-panel > a:hover {
+        padding-left: 14px !important;
+        color: #ffffff !important;
+        background: #143550 !important;
+        border-color: #29516d !important;
+    }
+
+    /* Ma sélection reste à droite */
+    .yns-selection-link {
+        min-height: 43px !important;
+        padding: 10px 14px !important;
+        color: #ffffff !important;
+        background: #176b87 !important;
+        border: 1px solid #2586a5 !important;
+        border-radius: 8px !important;
+        font-size: 0.87rem !important;
+        font-weight: 700 !important;
+        white-space: nowrap !important;
+    }
+
+    .yns-selection-link:hover {
+        color: #ffffff !important;
+        background: #2188a7 !important;
+        border-color: #54b6d5 !important;
+    }
+}
+
+/* YNS-NAVIGATION-PC-SANS-MENU-FIN */
