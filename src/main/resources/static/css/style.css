@@ -5553,3 +5553,146 @@ nav.yns-public-menu-panel > a:hover {
 }
 
 /* YNS-COMPTES-FOOTER-MOBILE-FIN */
+
+
+/* YNS-ACCUEIL-MOBILE-OPTIMISE-DEBUT */
+
+@media (max-width: 650px) {
+
+    /*
+     * Grande bannière visible à l’entrée du site
+     */
+    main > .hero {
+        position: relative !important;
+        isolation: isolate !important;
+        min-height: 330px !important;
+        padding: 42px 0 46px !important;
+        align-items: center !important;
+        overflow: hidden !important;
+        background-position: 58% center !important;
+        border-bottom: 1px solid rgba(125, 211, 252, 0.20) !important;
+    }
+
+    /*
+     * Fond plus lisible sur téléphone
+     */
+    main > .hero::before {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: -1 !important;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(7, 20, 34, 0.96) 0%,
+                rgba(7, 20, 34, 0.88) 52%,
+                rgba(7, 20, 34, 0.52) 100%
+            ) !important;
+    }
+
+    main > .hero .container {
+        width: calc(100% - 30px) !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+
+    /*
+     * Petit texte au-dessus du titre
+     */
+    main > .hero .surtitre {
+        display: inline-flex !important;
+        margin: 0 0 10px !important;
+        padding: 5px 9px !important;
+        color: #a5e7fa !important;
+        background: rgba(23, 107, 135, 0.25) !important;
+        border: 1px solid rgba(125, 211, 252, 0.28) !important;
+        border-radius: 20px !important;
+        font-size: 0.56rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.10em !important;
+    }
+
+    /*
+     * Titre plus petit et mieux adapté
+     */
+    main > .hero h1 {
+        max-width: 340px !important;
+        margin: 0 0 12px !important;
+        color: #ffffff !important;
+        font-size: 1.65rem !important;
+        line-height: 1.12 !important;
+        letter-spacing: -0.025em !important;
+        text-wrap: balance !important;
+    }
+
+    /*
+     * Description compacte
+     */
+    main > .hero p {
+        max-width: 330px !important;
+        margin: 0 0 19px !important;
+        color: #d7e6ef !important;
+        font-size: 0.78rem !important;
+        line-height: 1.55 !important;
+    }
+
+    /*
+     * Bouton catalogue adapté au tactile
+     */
+    main > .hero .btn {
+        width: 100% !important;
+        max-width: 230px !important;
+        min-height: 41px !important;
+        padding: 8px 15px !important;
+        color: #ffffff !important;
+        background: #176b87 !important;
+        border: 1px solid #2d91af !important;
+        border-radius: 8px !important;
+        box-shadow: 0 8px 20px rgba(5, 20, 34, 0.24) !important;
+        font-size: 0.75rem !important;
+        font-weight: 750 !important;
+    }
+
+    main > .hero .btn:hover,
+    main > .hero .btn:active {
+        background: #2188a7 !important;
+        border-color: #54b6d5 !important;
+        transform: none !important;
+    }
+
+    /*
+     * Réduire l’espace entre la bannière
+     * et le Contact rapide
+     */
+    main > .hero + .section {
+        padding-top: 25px !important;
+    }
+}
+
+/* Très petits téléphones */
+@media (max-width: 380px) {
+
+    main > .hero {
+        min-height: 300px !important;
+        padding: 35px 0 38px !important;
+    }
+
+    main > .hero h1 {
+        max-width: 290px !important;
+        font-size: 1.42rem !important;
+    }
+
+    main > .hero p {
+        max-width: 290px !important;
+        font-size: 0.72rem !important;
+        line-height: 1.5 !important;
+    }
+
+    main > .hero .btn {
+        max-width: 210px !important;
+        min-height: 39px !important;
+        font-size: 0.71rem !important;
+    }
+}
+
+/* YNS-ACCUEIL-MOBILE-OPTIMISE-FIN */
