@@ -5650,99 +5650,21 @@ nav.yns-public-menu-panel > a:hover {
 /* YNS-ACCUEIL-MOBILE-TAILLE-FIN */
 
 
-/* YNS-CONTACT-ACCUEIL-VISIBLE-DEBUT */
+
+
+
+/* YNS-DISTANCE-CONTACT-MOBILE-DEBUT */
 
 @media (max-width: 650px) {
 
     /*
-     * Réduire uniquement l'espace entre la bannière
-     * et la carte Contact rapide.
+     * Ancien design entièrement conservé.
+     * On rapproche seulement Contact rapide de 16 px.
      */
     main > .hero + .container.section {
-        padding-top: 10px !important;
-    }
-
-    /* Contact rapide compact, sans changer son style */
-    main > .hero + .container.section
-    .yns-contact-before-products {
-        gap: 9px !important;
-        margin-top: 0 !important;
-        margin-bottom: 16px !important;
-        padding: 13px 12px !important;
-    }
-
-    main > .hero + .container.section
-    .yns-contact-before-products .yns-extra-kicker {
-        margin-bottom: 3px !important;
-        font-size: 0.52rem !important;
-    }
-
-    main > .hero + .container.section
-    .yns-contact-before-products h2 {
-        margin: 0 0 4px !important;
-        font-size: 0.94rem !important;
-        line-height: 1.2 !important;
-    }
-
-    main > .hero + .container.section
-    .yns-contact-before-products p {
-        font-size: 0.64rem !important;
-        line-height: 1.35 !important;
-    }
-
-    main > .hero + .container.section
-    .yns-contact-before-products .yns-extra-buttons {
-        gap: 5px !important;
-    }
-
-    main > .hero + .container.section
-    .yns-contact-before-products .yns-extra-button {
-        min-height: 34px !important;
-        padding: 6px 6px !important;
-        border-radius: 7px !important;
-        font-size: 0.62rem !important;
-        line-height: 1.15 !important;
-    }
-
-    main > .hero + .container.section
-    .yns-contact-before-products
-    .yns-extra-button.yns-search-product {
-        min-height: 36px !important;
-        font-size: 0.67rem !important;
+        position: relative !important;
+        margin-top: -16px !important;
     }
 }
 
-/* Téléphones avec un écran moins haut */
-@media (max-width: 380px), (max-height: 650px) {
-
-    .hero,
-    main > .hero {
-        min-height: 270px !important;
-        padding-top: 18px !important;
-        padding-bottom: 18px !important;
-    }
-
-    main > .hero + .container.section {
-        padding-top: 7px !important;
-    }
-
-    main > .hero + .container.section
-    .yns-contact-before-products {
-        gap: 7px !important;
-        padding: 11px 10px !important;
-    }
-
-    main > .hero + .container.section
-    .yns-contact-before-products p {
-        font-size: 0.60rem !important;
-    }
-
-    main > .hero + .container.section
-    .yns-contact-before-products .yns-extra-button {
-        min-height: 32px !important;
-        padding: 5px !important;
-        font-size: 0.58rem !important;
-    }
-}
-
-/* YNS-CONTACT-ACCUEIL-VISIBLE-FIN */
+/* YNS-DISTANCE-CONTACT-MOBILE-FIN */
