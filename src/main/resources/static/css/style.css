@@ -4582,3 +4582,91 @@ nav.yns-public-menu-panel > a:hover {
 }
 
 /* YNS-NAVIGATION-RESPONSIVE-FINALE-FIN */
+
+
+/* YNS-PHOTOS-MOBILE-PRO-DEBUT */
+
+@media (max-width: 650px) {
+
+    /* Galerie compacte avec deux petites photos par ligne */
+    .detail .yns-product-gallery,
+    .yns-product-gallery {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    /* Cadres sans espace blanc */
+    .detail .yns-gallery-item,
+    .yns-gallery-item {
+        width: 100% !important;
+        height: 115px !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        aspect-ratio: auto !important;
+        background: #0b1f33 !important;
+        border: 0 !important;
+        border-radius: 10px !important;
+        box-shadow: 0 5px 16px rgba(15, 23, 42, 0.14) !important;
+    }
+
+    /* Grande photo principale */
+    .detail .yns-gallery-item:first-child,
+    .yns-gallery-item:first-child {
+        grid-column: 1 / -1 !important;
+        height: 245px !important;
+        border-radius: 12px !important;
+    }
+
+    /* La photo remplit entièrement son cadre */
+    .detail .galerie .yns-gallery-item img,
+    .detail .yns-product-gallery .yns-gallery-item img,
+    .yns-product-gallery .yns-gallery-item img {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100% !important;
+        max-height: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        transform: none !important;
+    }
+
+    /* Pas de texte Agrandir sur téléphone */
+    .yns-gallery-item::after {
+        display: none !important;
+    }
+
+    /* Agrandissement professionnel :
+       la photo complète reste visible après le clic */
+    .yns-lightbox img {
+        width: auto !important;
+        height: auto !important;
+        max-width: calc(100vw - 20px) !important;
+        max-height: calc(100vh - 120px) !important;
+        object-fit: contain !important;
+        border-radius: 8px !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .detail .yns-gallery-item,
+    .yns-gallery-item {
+        height: 105px !important;
+    }
+
+    .detail .yns-gallery-item:first-child,
+    .yns-gallery-item:first-child {
+        height: 220px !important;
+    }
+}
+
+/* YNS-PHOTOS-MOBILE-PRO-FIN */
