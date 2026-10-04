@@ -4134,3 +4134,162 @@ nav.yns-public-menu-panel > a:hover {
 }
 
 /* YNS-NAVIGATION-PC-SANS-MENU-FIN */
+
+
+/* YNS-FICHE-ANNONCE-MOBILE-DEBUT */
+
+@media (max-width: 650px) {
+
+    /* Espace général de la page */
+    main.section:has(.detail) {
+        padding-top: 22px !important;
+        padding-bottom: 35px !important;
+    }
+
+    .detail {
+        gap: 14px !important;
+    }
+
+    .detail .retour,
+    main:has(.detail) .retour {
+        margin-bottom: 15px !important;
+        font-size: 0.75rem !important;
+    }
+
+    /* Fiche plus compacte */
+    .detail .fiche {
+        padding: 17px 14px !important;
+        border-radius: 11px !important;
+    }
+
+    /* Catégorie */
+    .detail .fiche .categorie {
+        font-size: 0.62rem !important;
+        letter-spacing: 0.05em !important;
+    }
+
+    /* Titre de l’annonce plus petit */
+    .detail .fiche h1 {
+        margin: 7px 0 9px !important;
+        overflow-wrap: anywhere !important;
+        color: #162238 !important;
+        font-size: 1.15rem !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.015em !important;
+    }
+
+    /* Prix */
+    .detail .fiche .grand-prix {
+        margin-bottom: 12px !important;
+        font-size: 1.12rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* État et disponibilité */
+    .detail .fiche > p {
+        margin: 8px 0 !important;
+        font-size: 0.76rem !important;
+        line-height: 1.45 !important;
+    }
+
+    .detail .fiche .statut {
+        padding: 4px 7px !important;
+        font-size: 0.57rem !important;
+    }
+
+    /* Description */
+    .detail .description {
+        margin: 16px 0 !important;
+        padding-top: 13px !important;
+    }
+
+    .detail .description h2 {
+        margin: 0 0 8px !important;
+        font-size: 0.95rem !important;
+    }
+
+    .detail .description p {
+        margin: 0 !important;
+        font-size: 0.76rem !important;
+        line-height: 1.55 !important;
+    }
+
+    /* Zone des boutons */
+    .detail .actions {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    .detail .actions form {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* Tous les boutons plus petits */
+    .detail .actions .btn,
+    .detail .actions .yns-offer-button,
+    .detail .actions button,
+    .detail .actions > a {
+        display: inline-flex !important;
+        width: 100% !important;
+        min-height: 40px !important;
+        margin: 0 !important;
+        padding: 8px 10px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 8px !important;
+        font-size: 0.74rem !important;
+        font-weight: 750 !important;
+        line-height: 1.2 !important;
+        text-align: center !important;
+        white-space: normal !important;
+        box-shadow: none !important;
+    }
+
+    /* Faire une offre */
+    .detail .actions .yns-offer-button {
+        background: linear-gradient(
+            135deg,
+            #c58a2b,
+            #8a570f
+        ) !important;
+    }
+
+    /* Réserver */
+    .detail .actions .btn-primary {
+        background: #2563eb !important;
+    }
+
+    /* Ajouter à ma sélection */
+    .detail .actions .btn-outline {
+        color: #162238 !important;
+        background: #ffffff !important;
+        border: 1px solid #cfd8e3 !important;
+    }
+
+    /* Vinted */
+    .detail .actions .btn-vinted {
+        color: #ffffff !important;
+        background: #007782 !important;
+    }
+
+    /* Leboncoin */
+    .detail .actions .btn-leboncoin {
+        color: #ffffff !important;
+        background: #ff6e14 !important;
+    }
+
+    /* Message de paiement */
+    .detail .information {
+        margin-top: 13px !important;
+        padding: 11px 12px !important;
+        border-radius: 8px !important;
+        font-size: 0.69rem !important;
+        line-height: 1.45 !important;
+        text-align: center !important;
+    }
+}
+
+/* YNS-FICHE-ANNONCE-MOBILE-FIN */
