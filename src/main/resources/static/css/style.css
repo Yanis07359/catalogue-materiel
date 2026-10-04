@@ -2166,3 +2166,15 @@ header a:hover,
 .header .yns-logo strong {
     color: #60a5fa !important;
 }
+
+/* Contact rapide placé avant les annonces */
+.yns-contact-before-products {
+    width: 100%;
+    margin: 0 0 32px !important;
+}
+
+@media (max-width: 700px) {
+    .yns-contact-before-products {
+        margin-bottom: 24px !important;
+    }
+}

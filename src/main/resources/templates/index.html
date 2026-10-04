@@ -7,11 +7,11 @@
     <title>YNS Equipements</title>
     <link rel="stylesheet" th:href="@{/css/style.css(v=10)}">
     <link rel="icon" type="image/png"
-          th:href="@{/favicon.png}"
-          href="/favicon.png">
+          th:href="@{/favicon.png(v=1791073844)}"
+          href="/favicon.png?v=1791073844">
     <link rel="apple-touch-icon"
-          th:href="@{/favicon.png}"
-          href="/favicon.png">
+          th:href="@{/favicon.png(v=1791073844)}"
+          href="/favicon.png?v=1791073844">
 </head>
 <body>
 
@@ -39,7 +39,35 @@
     </section>
 
     <section class="container section">
-        <div class="titre-section">
+        
+
+        
+<!-- CONTACT RAPIDE AVANT LES ANNONCES -->
+<div class="yns-extra-contact yns-contact-before-products">
+            <div>
+                <span class="yns-extra-kicker">Contact rapide</span>
+                <h2>Une question sur un produit ?</h2>
+                <p>
+                    Contactez YNS Equipements par email ou Instagram pour
+                    obtenir des informations complémentaires.
+                </p>
+            </div>
+
+            <div class="yns-extra-buttons">
+                <a class="yns-extra-button yns-email"
+                   href="mailto:yanisroum01@gmail.com">
+                    Envoyer un email
+                </a>
+
+                <a class="yns-extra-button yns-instagram"
+                   href="https://www.instagram.com/yns_equipements/"
+                   target="_blank" rel="noopener noreferrer">
+                    Contacter sur Instagram
+                </a>
+            </div>
+        </div>
+
+<div class="titre-section">
             <div>
                 <span class="surtitre">Disponible maintenant</span>
                 <h2>Dernières annonces</h2>
@@ -50,7 +78,10 @@
             </a>
         </div>
 
-        <div class="grille">
+
+<!-- FIN CONTACT RAPIDE -->
+
+<div class="grille">
             <article th:each="annonce : ${annonces}"
                      class="carte">
 
@@ -88,6 +119,62 @@
 
 
 
+
+
+<!-- YNS-INFOS-DEBUT -->
+<section class="yns-extra-section" id="confiance">
+    <div class="yns-extra-container">
+
+
+
+
+
+        <div class="yns-extra-heading">
+            <span class="yns-extra-kicker">Nos engagements</span>
+            <h2>Achetez en toute confiance</h2>
+            <p>
+                Chaque produit est sélectionné avec attention afin de proposer
+                du matériel recherché, fiable et offrant un excellent rapport
+                qualité-prix.
+            </p>
+        </div>
+
+        <div class="yns-extra-grid">
+            <article class="yns-extra-card">
+                <div class="yns-extra-icon">✓</div>
+                <h3>Produits vérifiés</h3>
+                <p>
+                    Le fonctionnement et l'état du matériel sont vérifiés avant
+                    la publication de chaque annonce.
+                </p>
+            </article>
+
+            <article class="yns-extra-card">
+                <div class="yns-extra-icon">€</div>
+                <h3>Paiement sécurisé</h3>
+                <p>
+                    Les paiements sont réalisés uniquement sur Vinted,
+                    Leboncoin ou lors d'une remise en main propre.
+                </p>
+            </article>
+
+            <article class="yns-extra-card">
+                <div class="yns-extra-icon">★</div>
+                <h3>Qualité-prix</h3>
+                <p>
+                    Nous privilégions du matériel utile et demandé, choisi pour
+                    sa qualité, son usage et la cohérence de son prix.
+                </p>
+            </article>
+        </div>
+
+        
+
+        
+
+    </div>
+</section>
+<!-- YNS-INFOS-FIN -->
 
 <!-- PRESENTATION-V4 -->
 
@@ -166,7 +253,7 @@
             <div class="yns-about-v4__links">
 
                 <a class="yns-social-card yns-social-card--vinted"
-                   href="https://www.vinted.fr/member/295112160"
+                   href="https://www.vinted.fr/member/295112160/feedback"
                    target="_blank"
                    rel="noopener noreferrer">
                     <span class="yns-social-card__icon" aria-hidden="true">
