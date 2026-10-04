@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Faire une offre - YNS Equipements</title>
+    <link rel="icon" th:href="@{/favicon.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: header}"></header>
+
+<main class="yns-request-page">
+    <section class="yns-request-card">
+        <span class="yns-request-kicker">Proposition de prix</span>
+        <h1>Faire une offre</h1>
+
+        <div class="yns-offer-product">
+            <img th:src="${annonce.photoPrincipale()}"
+                 th:alt="${annonce.titre}">
+
+            <div>
+                <span th:text="${annonce.categorie}"></span>
+                <h2 th:text="${annonce.titre}"></h2>
+                <strong th:text="${annonce.prix + ' €'}"></strong>
+            </div>
+        </div>
+
+        <p class="yns-request-intro">
+            Proposez un prix raisonnable. Votre offre sera étudiée,
+            mais son acceptation n'est pas automatique.
+        </p>
+
+        <div class="yns-form-error"
+             th:if="${erreur}"
+             th:text="${erreur}">
+        </div>
+
+        <form th:action="@{/annonce/{id}/offre(id=${annonce.id})}"
+              method="post"
+              class="yns-request-form">
+
+            <div class="yns-form-grid">
+                <label>
+                    Nom et prénom *
+                    <input type="text"
+                           name="nom"
+                           required
+                           maxlength="150">
+                </label>
+
+                <label>
+                    Adresse email *
+                    <input type="email"
+                           name="email"
+                           required
+                           maxlength="255">
+                </label>
+
+                <label>
+                    Téléphone
+                    <input type="tel"
+                           name="telephone"
+                           maxlength="50">
+                </label>
+
+                <label>
+                    Votre prix proposé *
+                    <div class="yns-price-input">
+                        <input type="number"
+                               name="prixPropose"
+                               min="0.01"
+                               step="0.01"
+                               required>
+                        <span>€</span>
+                    </div>
+                </label>
+            </div>
+
+            <label>
+                Message complémentaire
+                <textarea name="message"
+                          rows="5"
+                          maxlength="2000"
+                          placeholder="Vous pouvez préciser votre proposition ou poser une question."></textarea>
+            </label>
+
+            <p class="yns-form-note">
+                Aucun paiement n'est réalisé sur ce site. En cas d'accord,
+                la transaction sera finalisée par une plateforme sécurisée
+                ou en remise en main propre.
+            </p>
+
+            <button type="submit" class="yns-primary-button">
+                Envoyer mon offre
+            </button>
+        </form>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>

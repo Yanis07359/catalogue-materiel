@@ -23,6 +23,11 @@
             <a th:href="@{/}">Accueil</a>
             <a th:href="@{/catalogue}">Catalogue</a>
 
+            <a th:href="@{/recherche-produit}">
+                Je recherche un produit
+            </a>
+
+
             <a th:href="@{/panier}" class="panier">
                 Ma sélection
                 <span th:text="${nombrePanier != null ? nombrePanier : 0}">

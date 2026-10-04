@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demandes clients - Administration</title>
+    <link rel="icon" th:href="@{/favicon.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="yns-admin-body">
+
+<header class="yns-admin-header">
+    <div>
+        <strong>YNS Equipements</strong>
+        <span>Administration</span>
+    </div>
+
+    <nav>
+        <a th:href="@{/admin}">Tableau de bord</a>
+        <a th:href="@{/admin/annonces}">Annonces</a>
+        <a th:href="@{/admin/reservations}">Réservations</a>
+        <a th:href="@{/admin/demandes}" class="active">Demandes clients</a>
+        <a th:href="@{/}">Voir le site</a>
+    </nav>
+</header>
+
+<main class="yns-admin-main">
+    <div class="yns-admin-title">
+        <div>
+            <span>Administration</span>
+            <h1>Demandes clients et offres</h1>
+        </div>
+    </div>
+
+    <div class="yns-admin-success"
+         th:if="${succes}"
+         th:text="${succes}">
+    </div>
+
+    <div class="yns-admin-empty" th:if="${#lists.isEmpty(demandes)}">
+        Aucune demande client pour le moment.
+    </div>
+
+    <div class="yns-demands-grid">
+        <article class="yns-demand-card"
+                 th:each="demande : ${demandes}">
+
+            <div class="yns-demand-header">
+                <span class="yns-demand-type"
+                      th:text="${demande['type_demande'] == 'OFFRE_PRIX'
+                        ? 'Offre de prix'
+                        : 'Recherche de produit'}">
+                </span>
+
+                <span class="yns-demand-status"
+                      th:text="${demande['statut']}">
+                </span>
+            </div>
+
+            <h2 th:if="${demande['type_demande'] == 'OFFRE_PRIX'}"
+                th:text="${demande['annonce_titre']}">
+            </h2>
+
+            <h2 th:if="${demande['type_demande'] == 'RECHERCHE_PRODUIT'}"
+                th:text="${demande['produit_recherche']}">
+            </h2>
+
+            <div class="yns-demand-information">
+                <p>
+                    <strong>Client :</strong>
+                    <span th:text="${demande['nom']}"></span>
+                </p>
+
+                <p>
+                    <strong>Email :</strong>
+                    <a th:href="${'mailto:' + demande['email']}"
+                       th:text="${demande['email']}">
+                    </a>
+                </p>
+
+                <p th:if="${demande['telephone'] != null}">
+                    <strong>Téléphone :</strong>
+                    <span th:text="${demande['telephone']}"></span>
+                </p>
+
+                <p th:if="${demande['budget'] != null}">
+                    <strong>Budget :</strong>
+                    <span th:text="${demande['budget'] + ' €'}"></span>
+                </p>
+
+                <p th:if="${demande['prix_propose'] != null}">
+                    <strong>Prix proposé :</strong>
+                    <span th:text="${demande['prix_propose'] + ' €'}"></span>
+                </p>
+
+                <p>
+                    <strong>Date :</strong>
+                    <span th:text="${demande['date_demande']}"></span>
+                </p>
+            </div>
+
+            <div class="yns-demand-message"
+                 th:if="${demande['details'] != null}">
+                <strong>Détails de la recherche</strong>
+                <p th:text="${demande['details']}"></p>
+            </div>
+
+            <div class="yns-demand-message"
+                 th:if="${demande['message'] != null}">
+                <strong>Message</strong>
+                <p th:text="${demande['message']}"></p>
+            </div>
+
+            <div class="yns-demand-actions">
+                <a class="yns-admin-email-button"
+                   th:href="${'mailto:' + demande['email']
+                       + '?subject=Votre demande - YNS Equipements'}">
+                    Répondre par email
+                </a>
+
+                <form th:action="@{/admin/demandes/{id}/statut(id=${demande['id']})}"
+                      method="post">
+                    <select name="statut">
+                        <option value="NOUVELLE"
+                                th:selected="${demande['statut'] == 'NOUVELLE'}">
+                            Nouvelle
+                        </option>
+                        <option value="CONTACTEE"
+                                th:selected="${demande['statut'] == 'CONTACTEE'}">
+                            Contactée
+                        </option>
+                        <option value="ACCEPTEE"
+                                th:selected="${demande['statut'] == 'ACCEPTEE'}">
+                            Acceptée
+                        </option>
+                        <option value="REFUSEE"
+                                th:selected="${demande['statut'] == 'REFUSEE'}">
+                            Refusée
+                        </option>
+                    </select>
+
+                    <button type="submit">Modifier</button>
+                </form>
+
+                <form th:action="@{/admin/demandes/{id}/supprimer(id=${demande['id']})}"
+                      method="post"
+                      onsubmit="return confirm('Supprimer définitivement cette demande ?')">
+                    <button type="submit" class="yns-delete-button">
+                        Supprimer
+                    </button>
+                </form>
+            </div>
+        </article>
+    </div>
+</main>
+
+</body>
+</html>

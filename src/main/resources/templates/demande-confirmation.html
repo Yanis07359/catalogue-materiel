@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demande envoyée - YNS Equipements</title>
+    <link rel="icon" th:href="@{/favicon.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: header}"></header>
+
+<main class="yns-request-page">
+    <section class="yns-confirmation-card">
+        <div class="yns-confirmation-icon">✓</div>
+
+        <h1 th:text="${titreConfirmation}">
+            Demande envoyée
+        </h1>
+
+        <p th:text="${messageConfirmation}">
+            Votre demande a bien été enregistrée.
+        </p>
+
+        <p class="yns-email-information"
+           th:if="${emailEnvoye}">
+            Une notification a également été envoyée à YNS Equipements.
+        </p>
+
+        <a th:href="@{/}" class="yns-primary-button">
+            Retourner à l'accueil
+        </a>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>

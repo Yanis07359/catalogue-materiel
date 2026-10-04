@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recherche de produit - YNS Equipements</title>
+    <link rel="icon" th:href="@{/favicon.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:replace="~{fragments :: header}"></header>
+
+<main class="yns-request-page">
+    <section class="yns-request-card">
+        <span class="yns-request-kicker">Service personnalisé</span>
+        <h1>Vous recherchez un produit précis ?</h1>
+
+        <p class="yns-request-intro">
+            Décrivez le matériel que vous recherchez, son utilisation
+            et votre budget. YNS Equipements étudiera votre demande
+            et vous contactera lorsqu'une solution adaptée sera disponible.
+        </p>
+
+        <div class="yns-form-error"
+             th:if="${erreur}"
+             th:text="${erreur}">
+        </div>
+
+        <form th:action="@{/recherche-produit}"
+              method="post"
+              class="yns-request-form">
+
+            <div class="yns-form-grid">
+                <label>
+                    Nom et prénom *
+                    <input type="text"
+                           name="nom"
+                           required
+                           maxlength="150"
+                           autocomplete="name">
+                </label>
+
+                <label>
+                    Adresse email *
+                    <input type="email"
+                           name="email"
+                           required
+                           maxlength="255"
+                           autocomplete="email">
+                </label>
+
+                <label>
+                    Téléphone
+                    <input type="tel"
+                           name="telephone"
+                           maxlength="50"
+                           autocomplete="tel">
+                </label>
+
+                <label>
+                    Budget souhaité
+                    <div class="yns-price-input">
+                        <input type="number"
+                               name="budget"
+                               min="0"
+                               step="0.01"
+                               placeholder="Exemple : 150">
+                        <span>€</span>
+                    </div>
+                </label>
+            </div>
+
+            <label>
+                Produit recherché *
+                <input type="text"
+                       name="produitRecherche"
+                       required
+                       maxlength="255"
+                       placeholder="Exemple : caméra, carte graphique, dérailleur...">
+            </label>
+
+            <label>
+                Description de votre besoin
+                <textarea name="details"
+                          rows="7"
+                          maxlength="3000"
+                          placeholder="Marque, modèle, état souhaité, caractéristiques, utilisation prévue..."></textarea>
+            </label>
+
+            <p class="yns-form-note">
+                Aucun paiement n'est demandé pour envoyer cette recherche.
+            </p>
+
+            <button type="submit" class="yns-primary-button">
+                Envoyer ma recherche
+            </button>
+        </form>
+    </section>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>

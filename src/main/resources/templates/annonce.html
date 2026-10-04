@@ -100,6 +100,13 @@
 
             <div class="actions">
 
+            <a class="yns-offer-button"
+               th:if="${annonce.statut == 'DISPONIBLE'}"
+               th:href="@{/annonce/{id}/offre(id=${annonce.id})}">
+                Faire une offre
+            </a>
+
+
                 <form th:if="${annonce.statut == 'DISPONIBLE'}"
                       th:action="@{/reservation/directe/{id}(id=${annonce.id})}"
                       method="post">
