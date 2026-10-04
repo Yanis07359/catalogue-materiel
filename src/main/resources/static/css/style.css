@@ -3456,3 +3456,121 @@ nav.yns-public-menu-panel > a:hover {
 }
 
 /* YNS-MENU-PUBLIC-PRO-FIN */
+
+
+/* YNS-MOBILE-HEADER-COMPACT-DEBUT */
+
+@media (max-width: 650px) {
+
+    /* Barre supérieure plus fine */
+    .header,
+    .yns-site-header {
+        min-height: 56px !important;
+    }
+
+    .header .navigation,
+    .yns-public-navigation {
+        width: calc(100% - 20px) !important;
+        min-height: 56px !important;
+        padding: 7px 0 !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 8px !important;
+    }
+
+    /* Logo compact */
+    .header .yns-logo,
+    .yns-site-header .yns-logo {
+        width: auto !important;
+        flex: 0 0 auto !important;
+        justify-content: flex-start !important;
+        gap: 0 !important;
+    }
+
+    .header .yns-logo img,
+    .yns-site-header .yns-logo img {
+        width: 36px !important;
+        height: 36px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        object-fit: contain !important;
+    }
+
+    /* Cacher le grand texte du logo uniquement sur téléphone */
+    .header .yns-logo > span,
+    .yns-site-header .yns-logo > span {
+        display: none !important;
+    }
+
+    /* Menu et sélection sur la même ligne */
+    .yns-header-actions {
+        position: static !important;
+        width: auto !important;
+        margin-left: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 6px !important;
+        transform: none !important;
+    }
+
+    /* Petit bouton Menu */
+    .yns-public-menu summary {
+        min-width: 76px !important;
+        min-height: 38px !important;
+        padding: 7px 10px !important;
+        gap: 8px !important;
+        border-radius: 7px !important;
+        font-size: 0.78rem !important;
+    }
+
+    .yns-public-menu summary::after {
+        width: 6px !important;
+        height: 6px !important;
+    }
+
+    /* Petit bouton Ma sélection */
+    .yns-selection-link {
+        min-height: 38px !important;
+        padding: 7px 9px !important;
+        gap: 6px !important;
+        border-radius: 7px !important;
+        font-size: 0.72rem !important;
+    }
+
+    .yns-selection-link .yns-selection-count {
+        min-width: 19px !important;
+        height: 19px !important;
+        padding: 0 5px !important;
+        font-size: 0.68rem !important;
+    }
+
+    /* Menu déroulant adapté au téléphone */
+    .yns-public-navigation nav.yns-public-menu-panel,
+    .navigation nav.yns-public-menu-panel {
+        position: fixed !important;
+        top: 62px !important;
+        right: 10px !important;
+        left: 10px !important;
+        width: auto !important;
+        max-width: none !important;
+        padding: 8px !important;
+        transform: none !important;
+        border-radius: 10px !important;
+    }
+
+    .yns-public-navigation nav.yns-public-menu-panel::before,
+    .navigation nav.yns-public-menu-panel::before {
+        display: none !important;
+    }
+
+    .yns-public-navigation nav.yns-public-menu-panel > a,
+    .navigation nav.yns-public-menu-panel > a {
+        min-height: 42px !important;
+        padding: 11px 13px !important;
+        font-size: 0.84rem !important;
+    }
+}
+
+/* YNS-MOBILE-HEADER-COMPACT-FIN */
