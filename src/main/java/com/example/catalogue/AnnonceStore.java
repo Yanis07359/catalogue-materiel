@@ -27,8 +27,21 @@ public class AnnonceStore {
 
     public List<Annonce> findAll() {
         return jdbc.query(
-            "SELECT * FROM annonces ORDER BY id DESC",
+            "SELECT * FROM annonces " +
+                "ORDER BY CASE statut " +
+                "WHEN 'DISPONIBLE' THEN 1 " +
+                "WHEN 'RESERVE' THEN 2 " +
+                "WHEN 'VENDU' THEN 3 " +
+                "ELSE 4 END, id DESC",
             (rs, rowNum) -> mapper(rs)
+        );
+    }
+
+    public List<Annonce> findRecentes(int limite) {
+        return jdbc.query(
+            "SELECT * FROM annonces ORDER BY id DESC LIMIT ?",
+            (rs, rowNum) -> mapper(rs),
+            limite
         );
     }
 

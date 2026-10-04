@@ -37,7 +37,7 @@ public class SiteController {
 
     @GetMapping("/")
     public String accueil(Model model) {
-        model.addAttribute("annonces", annonceStore.findAll());
+        model.addAttribute("annonces", annonceStore.findRecentes(2));
         return "index";
     }
 
