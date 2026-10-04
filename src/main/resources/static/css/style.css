@@ -2208,28 +2208,3 @@ header a:hover,
         margin-top: 45px;
     }
 }
-
-
-
-
-
-/* YNS-PHOTO-DETAIL-DEBUT */
-
-/* Photo complète après avoir cliqué sur une annonce */
-.galerie img {
-    width: 100%;
-    height: auto;
-    max-height: 680px;
-    object-fit: contain !important;
-    object-position: center;
-    background-color: #f1f5f9;
-    border-radius: 16px;
-}
-
-/* YNS-PHOTO-DETAIL-FIN */
-
-/* Coins légèrement arrondis pour les photos */
-.galerie img,
-.carte img {
-    border-radius: 10px !important;
-}
