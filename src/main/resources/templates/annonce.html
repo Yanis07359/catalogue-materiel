@@ -7,11 +7,11 @@
     <title th:text="${annonce.titre}">Annonce</title>
     <link rel="stylesheet" th:href="@{/css/style.css(v=10)}">
     <link rel="icon" type="image/png"
-          th:href="@{/favicon.png}"
-          href="/favicon.png">
+          th:href="@{/favicon.png(v=1791073844)}"
+          href="/favicon.png?v=1791073844">
     <link rel="apple-touch-icon"
-          th:href="@{/favicon.png}"
-          href="/favicon.png">
+          th:href="@{/favicon.png(v=1791073844)}"
+          href="/favicon.png?v=1791073844">
 </head>
 <body>
 
@@ -23,11 +23,50 @@
     </a>
 
     <div class="detail">
-        <section class="galerie">
-            <img th:each="photo : ${annonce.listePhotos()}"
-                 th:src="${photo}"
-                 th:alt="${annonce.titre}">
-        </section>
+        
+<section class="galerie yns-product-gallery">
+    <button type="button"
+            class="yns-gallery-item"
+            th:each="photo : ${annonce.listePhotos()}"
+            th:attr="data-image=${photo}"
+            aria-label="Agrandir la photo">
+
+        <img th:src="${photo}"
+             th:alt="${annonce.titre}"
+             loading="lazy">
+    </button>
+</section>
+
+<div id="ynsLightbox"
+     class="yns-lightbox"
+     hidden
+     role="dialog"
+     aria-modal="true"
+     aria-label="Photo agrandie">
+
+    <button type="button"
+            class="yns-lightbox-close"
+            aria-label="Fermer">
+        &times;
+    </button>
+
+    <button type="button"
+            class="yns-lightbox-previous"
+            aria-label="Photo précédente">
+        &#10094;
+    </button>
+
+    <img id="ynsLightboxImage"
+         src=""
+         alt="Photo du produit agrandie">
+
+    <button type="button"
+            class="yns-lightbox-next"
+            aria-label="Photo suivante">
+        &#10095;
+    </button>
+</div>
+
 
         <section class="fiche">
             <span class="categorie"
@@ -107,6 +146,73 @@
 </main>
 
 <footer th:replace="~{fragments :: footer}"></footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const photos = Array.from(
+        document.querySelectorAll(".yns-gallery-item")
+    );
+
+    const lightbox = document.getElementById("ynsLightbox");
+    const lightboxImage = document.getElementById("ynsLightboxImage");
+    const closeButton = lightbox.querySelector(".yns-lightbox-close");
+    const previousButton = lightbox.querySelector(".yns-lightbox-previous");
+    const nextButton = lightbox.querySelector(".yns-lightbox-next");
+
+    let currentIndex = 0;
+
+    function showPhoto(index) {
+        if (photos.length === 0) return;
+
+        currentIndex = (index + photos.length) % photos.length;
+        lightboxImage.src = photos[currentIndex].dataset.image;
+    }
+
+    function openLightbox(index) {
+        showPhoto(index);
+        lightbox.hidden = false;
+        document.body.classList.add("yns-lightbox-open");
+        closeButton.focus();
+    }
+
+    function closeLightbox() {
+        lightbox.hidden = true;
+        lightboxImage.src = "";
+        document.body.classList.remove("yns-lightbox-open");
+    }
+
+    photos.forEach(function (photo, index) {
+        photo.addEventListener("click", function () {
+            openLightbox(index);
+        });
+    });
+
+    closeButton.addEventListener("click", closeLightbox);
+
+    previousButton.addEventListener("click", function () {
+        showPhoto(currentIndex - 1);
+    });
+
+    nextButton.addEventListener("click", function () {
+        showPhoto(currentIndex + 1);
+    });
+
+    lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (lightbox.hidden) return;
+
+        if (event.key === "Escape") closeLightbox();
+        if (event.key === "ArrowLeft") showPhoto(currentIndex - 1);
+        if (event.key === "ArrowRight") showPhoto(currentIndex + 1);
+    });
+});
+</script>
 
 </body>
 </html>
