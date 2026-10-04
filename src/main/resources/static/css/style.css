@@ -3672,3 +3672,67 @@ nav.yns-public-menu-panel > a:hover {
 }
 
 /* YNS-ANNONCES-MOBILE-COMPACTES-FIN */
+
+
+/* YNS-MOBILE-SELECTION-SCROLL-DEBUT */
+
+@media (max-width: 650px) {
+
+    /* Animation de la barre sur téléphone */
+    .header,
+    .yns-site-header {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 5000 !important;
+        transition: transform 0.22s ease-in-out !important;
+        will-change: transform;
+    }
+
+    /* Cacher la barre quand l'utilisateur descend */
+    .header.yns-mobile-header-hidden,
+    .yns-site-header.yns-mobile-header-hidden {
+        transform: translateY(calc(-100% - 2px)) !important;
+    }
+
+    /* Ma sélection : même style que le bouton Menu */
+    .yns-selection-link {
+        min-height: 38px !important;
+        padding: 7px 10px !important;
+        color: #ffffff !important;
+        background: transparent !important;
+        border: 1px solid #3d718c !important;
+        border-radius: 7px !important;
+        box-shadow: none !important;
+        font-size: 0.78rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.02em !important;
+        transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease !important;
+    }
+
+    .yns-selection-link:hover,
+    .yns-selection-link:focus,
+    .yns-selection-link:active {
+        color: #ffffff !important;
+        background: #143550 !important;
+        border-color: #54b6d5 !important;
+    }
+
+    /* Compteur de la sélection */
+    .yns-selection-link .yns-selection-count {
+        display: inline-flex !important;
+        min-width: 19px !important;
+        height: 19px !important;
+        padding: 0 5px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #0b1f33 !important;
+        background: #7dd3fc !important;
+        border-radius: 20px !important;
+        font-size: 0.67rem !important;
+        font-weight: 800 !important;
+    }
+}
+
+/* YNS-MOBILE-SELECTION-SCROLL-FIN */
