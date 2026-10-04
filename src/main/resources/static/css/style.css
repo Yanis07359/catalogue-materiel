@@ -3736,3 +3736,288 @@ nav.yns-public-menu-panel > a:hover {
 }
 
 /* YNS-MOBILE-SELECTION-SCROLL-FIN */
+
+
+/* YNS-MOBILE-DETAIL-ENGAGEMENTS-DEBUT */
+
+@media (max-width: 650px) {
+
+    /* =========================================
+       PHOTOS DANS LA PAGE D’UNE ANNONCE
+       ========================================= */
+
+    .detail {
+        gap: 18px !important;
+    }
+
+    .yns-product-gallery {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+    }
+
+    .yns-gallery-item {
+        width: 100% !important;
+        height: 105px !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        aspect-ratio: auto !important;
+        border-radius: 9px !important;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+    }
+
+    /* La première photo reste principale */
+    .yns-gallery-item:first-child {
+        grid-column: 1 / -1 !important;
+        height: 220px !important;
+    }
+
+    .detail .galerie .yns-gallery-item img,
+    .yns-gallery-item img {
+        width: 100% !important;
+        height: 100% !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        background: #f8fafc !important;
+    }
+
+    /* Fiche produit légèrement plus compacte */
+    .detail .fiche {
+        padding: 20px 17px !important;
+        border-radius: 12px !important;
+    }
+
+    .detail .fiche h1 {
+        font-size: 1.35rem !important;
+        line-height: 1.25 !important;
+    }
+
+    .detail .grand-prix {
+        font-size: 1.25rem !important;
+    }
+
+    .detail .description {
+        margin: 19px 0 !important;
+        padding-top: 15px !important;
+    }
+
+    .detail .description h2 {
+        font-size: 1.05rem !important;
+    }
+
+    .detail .description p {
+        font-size: 0.82rem !important;
+        line-height: 1.6 !important;
+    }
+
+
+    /* =========================================
+       SECTION NOS ENGAGEMENTS
+       ========================================= */
+
+    .yns-extra-section {
+        padding: 32px 10px !important;
+    }
+
+    .yns-extra-heading {
+        margin-bottom: 18px !important;
+    }
+
+    .yns-extra-heading .yns-extra-kicker {
+        margin-bottom: 6px !important;
+        font-size: 0.62rem !important;
+    }
+
+    .yns-extra-heading h2 {
+        margin-bottom: 8px !important;
+        font-size: 1.3rem !important;
+    }
+
+    .yns-extra-heading > p {
+        font-size: 0.76rem !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Trois engagements alignés sur la même ligne */
+    .yns-extra-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        align-items: stretch !important;
+        gap: 7px !important;
+    }
+
+    .yns-extra-card {
+        display: flex !important;
+        min-width: 0 !important;
+        min-height: 92px !important;
+        padding: 10px 5px !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 10px !important;
+        text-align: center !important;
+        box-shadow: 0 5px 14px rgba(15, 23, 42, 0.06) !important;
+    }
+
+    .yns-extra-icon {
+        width: 29px !important;
+        height: 29px !important;
+        margin: 0 0 7px !important;
+        flex: 0 0 29px !important;
+        border-radius: 8px !important;
+        font-size: 0.7rem !important;
+    }
+
+    .yns-extra-card h3 {
+        margin: 0 !important;
+        font-size: 0.65rem !important;
+        line-height: 1.25 !important;
+    }
+
+    /* Cacher les longs paragraphes dans les petites cartes */
+    .yns-extra-card > p {
+        display: none !important;
+    }
+
+
+    /* =========================================
+       PRÉSENTATION EN BAS
+       ========================================= */
+
+    .yns-about-v4 {
+        padding: 28px 10px !important;
+    }
+
+    .yns-about-v4__container {
+        gap: 14px !important;
+    }
+
+    .yns-about-v4__presentation,
+    .yns-about-v4__social {
+        border-radius: 14px !important;
+    }
+
+    .yns-about-v4__presentation {
+        padding: 20px 15px !important;
+    }
+
+    .yns-about-v4__label {
+        margin-bottom: 8px !important;
+        font-size: 0.62rem !important;
+        letter-spacing: 0.1em !important;
+    }
+
+    .yns-about-v4__presentation h2 {
+        margin-bottom: 14px !important;
+        font-size: 1.3rem !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    .yns-about-v4__presentation > p:not(.yns-about-v4__label) {
+        margin-bottom: 11px !important;
+        font-size: 0.78rem !important;
+        line-height: 1.55 !important;
+    }
+
+    .yns-about-v4__introduction {
+        font-size: 0.82rem !important;
+    }
+
+    .yns-selection-note {
+        margin: 15px 0 !important;
+        padding: 11px 12px !important;
+        border-left-width: 3px !important;
+    }
+
+    .yns-selection-note strong {
+        margin-bottom: 5px !important;
+        font-size: 0.8rem !important;
+    }
+
+    .yns-selection-note p {
+        font-size: 0.74rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .yns-about-v4__values {
+        gap: 6px !important;
+        margin: 17px 0 !important;
+    }
+
+    .yns-about-v4__values span {
+        padding: 6px 10px !important;
+        font-size: 0.67rem !important;
+    }
+
+    .yns-about-v4__editor {
+        gap: 9px !important;
+        margin-top: 16px !important;
+        padding-top: 16px !important;
+    }
+
+    .yns-about-v4__editor-icon {
+        width: 37px !important;
+        height: 37px !important;
+        flex-basis: 37px !important;
+        border-radius: 10px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .yns-about-v4__editor strong {
+        font-size: 0.8rem !important;
+    }
+
+    .yns-about-v4__editor a {
+        font-size: 0.7rem !important;
+    }
+
+    /* Comptes officiels plus compacts */
+    .yns-about-v4__social {
+        padding: 21px 15px !important;
+    }
+
+    .yns-about-v4__social h3 {
+        font-size: 1.25rem !important;
+    }
+
+    .yns-about-v4__social-text {
+        margin-bottom: 17px !important;
+        font-size: 0.78rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .yns-about-v4__links {
+        gap: 8px !important;
+    }
+
+    .yns-social-card {
+        min-height: 57px !important;
+        padding: 8px 10px !important;
+        grid-template-columns: 36px minmax(0, 1fr) auto !important;
+        gap: 9px !important;
+        border-radius: 11px !important;
+    }
+
+    .yns-social-card__icon {
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 9px !important;
+    }
+
+    .yns-social-card__icon svg {
+        width: 21px !important;
+        height: 21px !important;
+    }
+
+    .yns-social-card__content strong {
+        margin-bottom: 2px !important;
+        font-size: 0.82rem !important;
+    }
+
+    .yns-social-card__content small {
+        font-size: 0.66rem !important;
+    }
+}
+
+/* YNS-MOBILE-DETAIL-ENGAGEMENTS-FIN */
