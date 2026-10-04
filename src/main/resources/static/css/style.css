@@ -2197,3 +2197,14 @@ header a:hover,
         padding-top: 32px;
     }
 }
+
+/* Séparation entre les annonces récentes et les autres annonces */
+.yns-autres-annonces {
+    margin-top: 70px;
+}
+
+@media (max-width: 700px) {
+    .yns-autres-annonces {
+        margin-top: 45px;
+    }
+}
