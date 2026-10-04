@@ -37,7 +37,19 @@ public class SiteController {
 
     @GetMapping("/")
     public String accueil(Model model) {
-        model.addAttribute("annonces", annonceStore.findRecentes(2));
+        List<Annonce> recentes = annonceStore.findRecentes(2);
+
+        var idsRecents = recentes.stream()
+                .map(Annonce::id)
+                .collect(java.util.stream.Collectors.toSet());
+
+        List<Annonce> autresAnnonces = annonceStore.findAll().stream()
+                .filter(annonce -> !idsRecents.contains(annonce.id()))
+                .toList();
+
+        model.addAttribute("annonces", recentes);
+        model.addAttribute("autresAnnonces", autresAnnonces);
+
         return "index";
     }
 

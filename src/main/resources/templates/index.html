@@ -115,6 +115,59 @@
                 </div>
             </article>
         </div>
+
+        <!-- YNS-AUTRES-ANNONCES -->
+        <section class="yns-autres-annonces"
+                 th:if="${autresAnnonces != null and !#lists.isEmpty(autresAnnonces)}">
+
+            <div class="titre-section yns-titre-autres">
+                <div>
+                    <span class="surtitre">Tout le catalogue</span>
+                    <h2>Autres annonces</h2>
+                </div>
+
+                <a th:href="@{/catalogue}">
+                    Voir tout
+                </a>
+            </div>
+
+<div class="grille">
+            <article th:each="annonce : ${autresAnnonces}"
+                     class="carte">
+
+                <a th:href="@{/annonce/{id}(id=${annonce.id})}">
+                    <img th:src="${annonce.photoPrincipale()}"
+                         th:alt="${annonce.titre}">
+                </a>
+
+                <div class="carte-contenu">
+                    <span class="categorie"
+                          th:text="${annonce.categorie}">
+                    </span>
+
+                    <h3 th:text="${annonce.titre}"></h3>
+
+                    <p th:text="${annonce.etat}"></p>
+
+                    <div class="prix-statut">
+                        <strong th:text="${annonce.prix + ' €'}"></strong>
+
+                        <span class="statut"
+                              th:classappend="${annonce.statutCss()}"
+                              th:text="${annonce.statut}">
+                        </span>
+                    </div>
+
+                    <a th:href="@{/annonce/{id}(id=${annonce.id})}"
+                       class="btn btn-outline btn-block">
+                        Voir le matériel
+                    </a>
+                </div>
+            </article>
+        </div>
+        </section>
+        <!-- FIN YNS-AUTRES-ANNONCES -->
+
     </section>
 
 

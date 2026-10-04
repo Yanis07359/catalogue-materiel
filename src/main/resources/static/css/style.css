@@ -2178,3 +2178,22 @@ header a:hover,
         margin-bottom: 24px !important;
     }
 }
+
+
+/* YNS-STYLE-AUTRES-ANNONCES */
+.yns-autres-annonces {
+    margin-top: 70px;
+    padding-top: 42px;
+    border-top: 1px solid rgba(148, 163, 184, 0.28);
+}
+
+.yns-titre-autres {
+    margin-bottom: 26px;
+}
+
+@media (max-width: 700px) {
+    .yns-autres-annonces {
+        margin-top: 48px;
+        padding-top: 32px;
+    }
+}
