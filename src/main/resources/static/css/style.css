@@ -4670,3 +4670,121 @@ nav.yns-public-menu-panel > a:hover {
 }
 
 /* YNS-PHOTOS-MOBILE-PRO-FIN */
+
+
+/* YNS-CONTACT-RAPIDE-MOBILE-DEBUT */
+
+@media (max-width: 650px) {
+
+    /* Carte Contact rapide plus compacte */
+    .yns-contact-before-products {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+        margin: 0 0 20px !important;
+        padding: 17px 15px !important;
+        border: 1px solid rgba(125, 211, 252, 0.16) !important;
+        border-radius: 14px !important;
+        background:
+            radial-gradient(
+                circle at top right,
+                rgba(59, 130, 246, 0.30),
+                transparent 42%
+            ),
+            #0f172a !important;
+        box-shadow: 0 10px 26px rgba(15, 23, 42, 0.15) !important;
+    }
+
+    /* Petit sous-titre */
+    .yns-contact-before-products .yns-extra-kicker {
+        margin-bottom: 6px !important;
+        color: #93c5fd !important;
+        font-size: 0.56rem !important;
+        letter-spacing: 0.11em !important;
+    }
+
+    /* Titre adapté au téléphone */
+    .yns-contact-before-products h2 {
+        margin: 0 0 7px !important;
+        color: #ffffff !important;
+        font-size: 1.05rem !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    /* Texte plus petit */
+    .yns-contact-before-products p {
+        margin: 0 !important;
+        color: #d6e3ef !important;
+        font-size: 0.70rem !important;
+        line-height: 1.45 !important;
+        opacity: 0.88 !important;
+    }
+
+    /*
+     * Bouton recherche sur toute la largeur.
+     * Email et Instagram alignés en dessous.
+     */
+    .yns-contact-before-products .yns-extra-buttons {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 7px !important;
+        width: 100% !important;
+    }
+
+    .yns-contact-before-products
+    .yns-extra-button.yns-search-product {
+        grid-column: 1 / -1 !important;
+    }
+
+    /* Boutons plus petits et tactiles */
+    .yns-contact-before-products .yns-extra-button {
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 39px !important;
+        margin: 0 !important;
+        padding: 7px 8px !important;
+        border-radius: 8px !important;
+        font-size: 0.68rem !important;
+        font-weight: 750 !important;
+        line-height: 1.2 !important;
+        text-align: center !important;
+        white-space: normal !important;
+        box-shadow: none !important;
+        touch-action: manipulation !important;
+    }
+
+    .yns-contact-before-products
+    .yns-extra-button.yns-search-product {
+        min-height: 41px !important;
+        font-size: 0.73rem !important;
+    }
+
+    .yns-contact-before-products
+    .yns-extra-button:active {
+        transform: scale(0.98) !important;
+    }
+
+    /* Supprimer l’ancienne marge du bouton email */
+    .yns-contact-before-products .yns-email {
+        margin-top: 0 !important;
+    }
+}
+
+/* Très petits téléphones */
+@media (max-width: 360px) {
+
+    .yns-contact-before-products {
+        padding: 15px 12px !important;
+    }
+
+    .yns-contact-before-products .yns-extra-buttons {
+        gap: 6px !important;
+    }
+
+    .yns-contact-before-products .yns-extra-button {
+        padding: 7px 5px !important;
+        font-size: 0.62rem !important;
+    }
+}
+
+/* YNS-CONTACT-RAPIDE-MOBILE-FIN */
