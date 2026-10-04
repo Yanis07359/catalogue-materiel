@@ -90,11 +90,11 @@ public class DemandeController {
 
         model.addAttribute(
             "titreConfirmation",
-            "Votre demande a bien été envoyée"
+            "Merci pour votre demande !"
         );
         model.addAttribute(
             "messageConfirmation",
-            "Nous allons rechercher le produit correspondant à vos besoins et à votre budget."
+            "Votre demande a bien été enregistrée. Une copie a été envoyée par email au vendeur. Vous serez contacté par email dans un délai maximum de 24 heures."
         );
         model.addAttribute("emailEnvoye", emailEnvoye);
 

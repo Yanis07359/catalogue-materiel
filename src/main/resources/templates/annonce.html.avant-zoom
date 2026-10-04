@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title th:text="${annonce.titre}">Annonce</title>
+    <link rel="stylesheet" th:href="@{/css/style.css(v=10)}">
+    <link rel="icon" type="image/png"
+          th:href="@{/favicon.png(v=1791073844)}"
+          href="/favicon.png?v=1791073844">
+    <link rel="apple-touch-icon"
+          th:href="@{/favicon.png(v=1791073844)}"
+          href="/favicon.png?v=1791073844">
+</head>
+<body>
+
+<header th:replace="~{fragments :: header}"></header>
+
+<main class="container section">
+    <a th:href="@{/catalogue}" class="retour">
+        ← Retour au catalogue
+    </a>
+
+    <div class="detail">
+        <section class="galerie">
+            <img th:each="photo : ${annonce.listePhotos()}"
+                 th:src="${photo}"
+                 th:alt="${annonce.titre}">
+        </section>
+
+        <section class="fiche">
+            <span class="categorie"
+                  th:text="${annonce.categorie}">
+            </span>
+
+            <h1 th:text="${annonce.titre}"></h1>
+
+            <div class="grand-prix"
+                 th:text="${annonce.prix + ' €'}">
+            </div>
+
+            <p>
+                <strong>État :</strong>
+                <span th:text="${annonce.etat}"></span>
+            </p>
+
+            <p>
+                <strong>Disponibilité :</strong>
+
+                <span class="statut"
+                      th:classappend="${annonce.statutCss()}"
+                      th:text="${annonce.statut}">
+                </span>
+            </p>
+
+            <div class="description">
+                <h2>Description</h2>
+                <p th:text="${annonce.description}"></p>
+            </div>
+
+            <div class="actions">
+
+                <form th:if="${annonce.statut == 'DISPONIBLE'}"
+                      th:action="@{/reservation/directe/{id}(id=${annonce.id})}"
+                      method="post">
+
+                    <button class="btn btn-primary btn-block"
+                            type="submit">
+                        Réserver maintenant
+                    </button>
+                </form>
+
+
+                <form th:if="${annonce.statut == 'DISPONIBLE'}"
+                      th:action="@{/panier/ajouter/{id}(id=${annonce.id})}"
+                      method="post">
+
+                    <button class="btn btn-outline btn-block"
+                            type="submit">
+                        Ajouter à ma sélection
+                    </button>
+                </form>
+
+                <a th:if="${annonce.aVinted()}"
+                   th:href="${annonce.lienVinted}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-vinted btn-block">
+                    Voir sur Vinted
+                </a>
+
+                <a th:if="${annonce.aLeboncoin()}"
+                   th:href="${annonce.lienLeboncoin}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-leboncoin btn-block">
+                    Voir sur Leboncoin
+                </a>
+            </div>
+
+            <div class="information">
+                Aucun paiement n’est effectué sur ce site.
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+
+</body>
+</html>

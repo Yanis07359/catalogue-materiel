@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<header th:fragment="header" class="header">
+    <div class="container navigation">
+
+        <a th:href="@{/}" class="yns-logo">
+            <img th:src="@{/images/logo-yns.png(v=1791073844)}"
+                 src="/images/logo-yns.png?v=1791073844"
+                 alt="Logo YNS Equipements">
+
+            <span>
+                <strong>YNS</strong> EQUIPEMENTS
+            </span>
+        </a>
+
+        <nav>
+            <a th:href="@{/}">Accueil</a>
+            <a th:href="@{/catalogue}">Catalogue</a>
+
+            <a th:href="@{/panier}" class="panier">
+                Ma sélection
+                <span th:text="${nombrePanier != null ? nombrePanier : 0}">
+                    0
+                </span>
+            </a>
+        </nav>
+
+    </div>
+</header>
+
+<footer th:fragment="footer" class="footer">
+    <div class="container footer-grid">
+        <div>
+            <h3>YNS Equipements</h3>
+            <p>Audiovisuel • Informatique • Mobilité</p>
+        </div>
+
+        <div>
+            <a th:href="@{/mentions-legales}">
+                Mentions légales
+            </a>
+
+            <a th:href="@{/confidentialite}">
+                Confidentialité
+            </a>
+
+                Administration
+            </a>
+        </div>
+    </div>
+
+    <p class="avertissement">
+        Aucun paiement n’est réalisé sur ce site.
+        Les transactions sont finalisées sur Vinted ou Leboncoin.
+    </p>
+</footer>
+
+</body>
+</html>

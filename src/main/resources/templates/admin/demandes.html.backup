@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Demandes clients - Administration</title>
+
+    <link rel="icon" type="image/png" th:href="@{/favicon.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<header th:replace="~{fragments :: header}"></header>
+
+<main class="container section">
+
+    <nav class="admin-navigation">
+        <a th:href="@{/admin/annonces}">
+            Annonces
+        </a>
+
+        <a th:href="@{/admin/reservations}">
+            Réservations
+        </a>
+
+        <a th:href="@{/admin/demandes}" class="active">
+            Demandes clients
+        </a>
+
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="btn btn-outline">
+                Déconnexion
+            </button>
+        </form>
+    </nav>
+
+    <div class="page-header">
+        <div>
+            <span class="surtitre">Administration</span>
+            <h1>Demandes clients</h1>
+
+            <p>
+                Retrouvez ici les recherches de produits et les offres
+                de prix envoyées par les visiteurs.
+            </p>
+        </div>
+    </div>
+
+    <div th:if="${message}"
+         class="message-succes"
+         th:text="${message}">
+    </div>
+
+    <div th:if="${demandes == null or #lists.isEmpty(demandes)}"
+         class="empty-state">
+
+        <h2>Aucune demande pour le moment</h2>
+
+        <p>
+            Les recherches de produits et les offres de prix envoyées
+            depuis le site apparaîtront ici.
+        </p>
+    </div>
+
+    <section th:if="${demandes != null and !#lists.isEmpty(demandes)}"
+             class="reservations-list">
+
+        <article th:each="demande : ${demandes}"
+                 class="reservation-card">
+
+            <div class="reservation-header">
+
+                <div>
+                    <span class="surtitre"
+                          th:text="${demande['type_demande'] == 'RECHERCHE_PRODUIT'
+                              ? 'Recherche de produit'
+                              : 'Offre de prix'}">
+                        Demande client
+                    </span>
+
+                    <h2 th:text="${demande['nom']}">
+                        Nom du client
+                    </h2>
+
+                    <a th:href="'mailto:' + ${demande['email']}"
+                       th:text="${demande['email']}">
+                        client@email.fr
+                    </a>
+                </div>
+
+                <span class="statut"
+                      th:classappend="${demande['statut'] == 'NOUVELLE'
+                          ? ' reserve'
+                          : ' disponible'}"
+                      th:text="${demande['statut']}">
+                    NOUVELLE
+                </span>
+
+            </div>
+
+            <div class="reservation-details">
+
+                <p th:if="${demande['telephone'] != null
+                           and !#strings.isEmpty(demande['telephone'])}">
+                    <strong>Téléphone :</strong>
+                    <span th:text="${demande['telephone']}"></span>
+                </p>
+
+                <p th:if="${demande['produit'] != null
+                           and !#strings.isEmpty(demande['produit'])}">
+                    <strong>Produit recherché :</strong>
+                    <span th:text="${demande['produit']}"></span>
+                </p>
+
+                <p th:if="${demande['budget'] != null}">
+                    <strong>Budget ou prix proposé :</strong>
+                    <span th:text="${demande['budget'] + ' €'}"></span>
+                </p>
+
+                <p th:if="${demande['annonce_id'] != null}">
+                    <strong>Annonce concernée :</strong>
+
+                    <a th:href="@{/annonce/{id}(id=${demande['annonce_id']})}">
+                        Voir l’annonce
+                    </a>
+                </p>
+
+                <p th:if="${demande['date_creation'] != null}">
+                    <strong>Date :</strong>
+                    <span th:text="${demande['date_creation']}"></span>
+                </p>
+
+                <div th:if="${demande['message'] != null
+                             and !#strings.isEmpty(demande['message'])}"
+                     class="reservation-message">
+
+                    <strong>Message du client :</strong>
+
+                    <p th:text="${demande['message']}"></p>
+                </div>
+
+            </div>
+
+            <div class="admin-actions">
+
+                <a class="btn btn-outline"
+                   th:href="'mailto:' + ${demande['email']}
+                       + '?subject=Réponse à votre demande - YNS Equipements'">
+                    Répondre par email
+                </a>
+
+                <form th:action="@{/admin/demandes/{id}/statut(id=${demande['id']})}"
+                      method="post">
+
+                    <select name="statut"
+                            class="admin-status-select">
+
+                        <option value="NOUVELLE"
+                                th:selected="${demande['statut'] == 'NOUVELLE'}">
+                            Nouvelle
+                        </option>
+
+                        <option value="EN_COURS"
+                                th:selected="${demande['statut'] == 'EN_COURS'}">
+                            En cours
+                        </option>
+
+                        <option value="TRAITEE"
+                                th:selected="${demande['statut'] == 'TRAITEE'}">
+                            Traitée
+                        </option>
+
+                    </select>
+
+                    <button type="submit"
+                            class="admin-status-button">
+                        Enregistrer
+                    </button>
+                </form>
+
+                <form th:action="@{/admin/demandes/{id}/supprimer(id=${demande['id']})}"
+                      method="post"
+                      onsubmit="return confirm('Supprimer définitivement cette demande ?');">
+
+                    <button type="submit"
+                            class="btn btn-danger">
+                        Supprimer
+                    </button>
+                </form>
+
+            </div>
+
+        </article>
+
+    </section>
+
+</main>
+
+</body>
+</html>

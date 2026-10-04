@@ -7,19 +7,19 @@
     <title>Gestion des annonces</title>
     <link rel="stylesheet" th:href="@{/css/style.css(v=10)}">
     <link rel="icon" type="image/png"
-          th:href="@{/favicon.png}"
-          href="/favicon.png">
+          th:href="@{/favicon.png(v=1791073844)}"
+          href="/favicon.png?v=1791073844">
     <link rel="apple-touch-icon"
-          th:href="@{/favicon.png}"
-          href="/favicon.png">
+          th:href="@{/favicon.png(v=1791073844)}"
+          href="/favicon.png?v=1791073844">
 </head>
 <body>
-
 <main class="container section">
     <nav class="admin-nav">
         <a th:href="@{/}">Voir le site</a>
         <a th:href="@{/admin/annonces}">Annonces</a>
         <a th:href="@{/admin/reservations}">Réservations</a>
+            <a th:href="@{/admin/demandes}">Demandes clients</a>
 
         <form th:action="@{/deconnexion}" method="post">
             <button class="supprimer" type="submit">
