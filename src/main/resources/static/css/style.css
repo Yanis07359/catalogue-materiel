@@ -2208,3 +2208,23 @@ header a:hover,
         margin-top: 45px;
     }
 }
+
+/* Afficher les photos des annonces entièrement, sans zoom */
+.carte img,
+.galerie img,
+.photo-annonce img,
+.annonce-photo img {
+    object-fit: contain !important;
+    object-position: center !important;
+    background-color: #f1f5f9;
+}
+
+/* Photos des cartes de la page d'accueil et du catalogue */
+.carte > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #f1f5f9;
+}
+
