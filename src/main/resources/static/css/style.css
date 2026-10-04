@@ -1739,3 +1739,430 @@ pre {
     }
 }
 
+/* YNS-INFOS-CSS-DEBUT */
+
+/* L'avertissement ne reste plus bloqué pendant le défilement. */
+.site-warning,
+.warning-banner,
+.payment-warning {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    z-index: auto !important;
+}
+
+.yns-extra-section {
+    padding: 72px 20px;
+    background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.09), transparent 35%),
+        linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.yns-extra-container {
+    width: min(1160px, 100%);
+    margin: 0 auto;
+}
+
+.yns-extra-heading {
+    max-width: 760px;
+    margin: 0 auto 38px;
+    text-align: center;
+}
+
+.yns-extra-kicker {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #2563eb;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.yns-extra-heading h2,
+.yns-extra-panel h2,
+.yns-extra-contact h2 {
+    margin: 0 0 14px;
+    color: #0f172a;
+    font-size: clamp(1.65rem, 4vw, 2.5rem);
+    line-height: 1.15;
+}
+
+.yns-extra-heading p,
+.yns-extra-panel p,
+.yns-extra-contact p {
+    margin: 0;
+    color: #64748b;
+    line-height: 1.75;
+}
+
+.yns-extra-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.yns-extra-card {
+    padding: 28px;
+    border: 1px solid #e2e8f0;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.07);
+}
+
+.yns-extra-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 21px;
+    border-radius: 13px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #2563eb, #0f172a);
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.yns-extra-card h3 {
+    margin: 0 0 11px;
+    color: #0f172a;
+    font-size: 1.12rem;
+}
+
+.yns-extra-card p {
+    margin: 0;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.yns-extra-panel,
+.yns-extra-contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(230px, 0.7fr);
+    gap: 34px;
+    align-items: center;
+    margin-top: 28px;
+    padding: 36px;
+    border-radius: 24px;
+}
+
+.yns-extra-panel {
+    border: 1px solid #dbeafe;
+    background: #eff6ff;
+}
+
+.yns-extra-contact {
+    color: #ffffff;
+    background:
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.48), transparent 38%),
+        #0f172a;
+    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.16);
+}
+
+.yns-extra-contact h2,
+.yns-extra-contact p {
+    color: #ffffff;
+}
+
+.yns-extra-contact p {
+    opacity: 0.8;
+}
+
+.yns-extra-contact .yns-extra-kicker {
+    color: #93c5fd;
+}
+
+.yns-extra-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.yns-extra-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 12px 18px;
+    border-radius: 13px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 750;
+    transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.yns-extra-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.93;
+}
+
+.yns-vinted {
+    color: #ffffff;
+    background: #007782;
+}
+
+.yns-leboncoin {
+    color: #ffffff;
+    background: #ff6e14;
+}
+
+.yns-email {
+    color: #0f172a;
+    background: #ffffff;
+}
+
+.yns-instagram {
+    color: #ffffff;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+}
+
+@media (max-width: 850px) {
+    .yns-extra-section {
+        padding: 54px 16px;
+    }
+
+    .yns-extra-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .yns-extra-panel,
+    .yns-extra-contact {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 27px 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .yns-extra-card {
+        padding: 23px;
+        border-radius: 18px;
+    }
+
+    .yns-extra-panel,
+    .yns-extra-contact {
+        border-radius: 19px;
+    }
+
+    .yns-extra-button {
+        width: 100%;
+        min-height: 48px;
+        padding: 11px 13px;
+        font-size: 0.9rem;
+    }
+}
+
+/* YNS-INFOS-CSS-FIN */
+
+
+/* Avertissement de paiement fixe en bas */
+body {
+    padding-bottom: 65px;
+}
+
+.avertissement {
+    position: fixed !important;
+    top: auto !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 13px 20px !important;
+    box-sizing: border-box;
+    z-index: 9999 !important;
+    color: #ffffff !important;
+    background: rgba(15, 23, 42, 0.97) !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 -5px 20px rgba(15, 23, 42, 0.18) !important;
+    text-align: center !important;
+    font-size: 0.88rem !important;
+    line-height: 1.4 !important;
+    backdrop-filter: blur(8px);
+}
+
+@media (max-width: 650px) {
+    body {
+        padding-bottom: 78px;
+    }
+
+    .avertissement {
+        padding: 10px 14px !important;
+        font-size: 0.76rem !important;
+        line-height: 1.35 !important;
+    }
+}
+
+/* Avertissement de paiement fixe en bas */
+body {
+    padding-bottom: 65px;
+}
+
+.avertissement {
+    position: fixed !important;
+    top: auto !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 13px 20px !important;
+    box-sizing: border-box;
+    z-index: 9999 !important;
+    color: #ffffff !important;
+    background: rgba(15, 23, 42, 0.97) !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 -5px 20px rgba(15, 23, 42, 0.18) !important;
+    text-align: center !important;
+    font-size: 0.88rem !important;
+    line-height: 1.4 !important;
+    backdrop-filter: blur(8px);
+}
+
+@media (max-width: 650px) {
+    body {
+        padding-bottom: 78px;
+    }
+
+    .avertissement {
+        padding: 10px 14px !important;
+        font-size: 0.76rem !important;
+        line-height: 1.35 !important;
+    }
+}
+
+/* YNS-HEADER-LOGO-V2-DEBUT */
+
+/*
+ * Fond légèrement bleuté pour distinguer les parties blanches
+ * du logo tout en conservant un aspect professionnel.
+ */
+.header,
+.site-header,
+header.main-header {
+    background: rgba(234, 242, 248, 0.98) !important;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.13) !important;
+    box-shadow: 0 7px 25px rgba(15, 23, 42, 0.08) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.yns-logo img,
+.site-logo img,
+.header-logo img {
+    display: block;
+    object-fit: contain;
+}
+
+/*
+ * Contact rapide placé en haut avec un espacement propre.
+ */
+.yns-extra-container > .yns-extra-contact:first-child {
+    margin-top: 0;
+    margin-bottom: 45px;
+}
+
+@media (max-width: 850px) {
+    .yns-extra-container > .yns-extra-contact:first-child {
+        margin-bottom: 34px;
+    }
+}
+
+/* YNS-HEADER-LOGO-V2-FIN */
+
+/* Couleur professionnelle de la barre de navigation */
+.header {
+    background: linear-gradient(90deg, #eaf2f8 0%, #dceaf4 100%) !important;
+    border-bottom: 1px solid #c8d9e6 !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08) !important;
+}
+
+.navigation nav a {
+    color: #17283a !important;
+}
+
+.navigation nav a:hover,
+.navigation nav a.active {
+    color: #1769aa !important;
+}
+
+/* Couleur professionnelle de la barre de navigation */
+.header {
+    background: linear-gradient(90deg, #eaf2f8 0%, #dceaf4 100%) !important;
+    border-bottom: 1px solid #c8d9e6 !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08) !important;
+}
+
+.navigation nav a {
+    color: #17283a !important;
+}
+
+.navigation nav a:hover,
+.navigation nav a.active {
+    color: #1769aa !important;
+}
+
+/* Couleur finale de la barre de navigation */
+header,
+.site-header,
+.main-header,
+.navbar {
+    background: #c8dce8 !important;
+    border-bottom: 1px solid #a9c5d6 !important;
+}
+
+/* Texte et liens de navigation */
+header a,
+.site-header a,
+.main-header a,
+.navbar a,
+.navbar-brand,
+.nav-link {
+    color: #102a43 !important;
+}
+
+/* Logo sans encadrement ni fond */
+header img,
+.site-header img,
+.main-header img,
+.navbar img,
+.logo img {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    object-fit: contain !important;
+}
+
+/* Effet au passage de la souris */
+header a:hover,
+.site-header a:hover,
+.main-header a:hover,
+.navbar a:hover,
+.nav-link:hover {
+    color: #2563eb !important;
+}
+
+
+/* Barre de navigation bleu nuit */
+.header .navigation nav > a {
+    color: #f8fafc !important;
+}
+
+.header .navigation nav > a:hover {
+    color: #60a5fa !important;
+}
+
+.header .yns-logo {
+    color: #ffffff !important;
+}
+
+.header .yns-logo strong {
+    color: #60a5fa !important;
+}

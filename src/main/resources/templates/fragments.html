@@ -2,12 +2,16 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <body>
 
-<header th:fragment="header" class="header">
+<header th:fragment="header"
+        class="header"
+        style="background-color: #0b1f33 !important;
+               background-image: none !important;
+               border-bottom: 1px solid #193b5a !important;">
     <div class="container navigation">
 
         <a th:href="@{/}" class="yns-logo">
-            <img th:src="@{/images/logo-yns.png}"
-                 src="/images/logo-yns.png"
+            <img th:src="@{/images/logo-yns.png(v=1791073844)}"
+                 src="/images/logo-yns.png?v=1791073844"
                  alt="Logo YNS Equipements">
 
             <span>
