@@ -3574,3 +3574,101 @@ nav.yns-public-menu-panel > a:hover {
 }
 
 /* YNS-MOBILE-HEADER-COMPACT-FIN */
+
+
+/* YNS-ANNONCES-MOBILE-COMPACTES-DEBUT */
+
+@media (max-width: 650px) {
+
+    /* Deux annonces par ligne uniquement sur téléphone */
+    .grille {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 9px !important;
+    }
+
+    /* Carte plus compacte */
+    .grille > .carte {
+        min-width: 0 !important;
+        border-radius: 10px !important;
+        box-shadow: 0 5px 15px rgba(15, 23, 42, 0.08) !important;
+    }
+
+    /* Image moins haute */
+    .grille > .carte > a:first-child {
+        display: block !important;
+        overflow: hidden !important;
+    }
+
+    .grille > .carte > a:first-child img {
+        width: 100% !important;
+        height: 105px !important;
+        object-fit: cover !important;
+    }
+
+    /* Contenu réduit */
+    .grille > .carte .carte-contenu {
+        padding: 9px !important;
+    }
+
+    /* Catégorie compacte */
+    .grille > .carte .categorie {
+        display: block !important;
+        overflow: hidden !important;
+        color: #2563eb !important;
+        font-size: 0.55rem !important;
+        line-height: 1.1 !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+
+    /* Titre sur deux lignes maximum */
+    .grille > .carte .carte-contenu h3 {
+        display: -webkit-box !important;
+        min-height: 31px !important;
+        max-height: 31px !important;
+        margin: 5px 0 !important;
+        overflow: hidden !important;
+        font-size: 0.76rem !important;
+        line-height: 1.25 !important;
+        -webkit-box-orient: vertical !important;
+        -webkit-line-clamp: 2 !important;
+    }
+
+    /* Masquer l'état pour économiser de l'espace */
+    .grille > .carte .carte-contenu > p {
+        display: none !important;
+    }
+
+    /* Prix et disponibilité */
+    .grille > .carte .prix-statut {
+        margin: 7px 0 !important;
+        gap: 4px !important;
+    }
+
+    .grille > .carte .prix-statut strong {
+        overflow: hidden !important;
+        font-size: 0.82rem !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+
+    .grille > .carte .statut {
+        flex-shrink: 0 !important;
+        padding: 3px 5px !important;
+        font-size: 0.47rem !important;
+        white-space: nowrap !important;
+    }
+
+    /* Petit bouton */
+    .grille > .carte .btn {
+        min-height: 31px !important;
+        padding: 6px 5px !important;
+        border-radius: 7px !important;
+        font-size: 0.62rem !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* YNS-ANNONCES-MOBILE-COMPACTES-FIN */
