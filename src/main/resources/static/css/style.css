@@ -2227,3 +2227,9 @@ header a:hover,
 }
 
 /* YNS-PHOTO-DETAIL-FIN */
+
+/* Coins légèrement arrondis pour les photos */
+.galerie img,
+.carte img {
+    border-radius: 10px !important;
+}
