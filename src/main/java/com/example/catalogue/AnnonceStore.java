@@ -127,4 +127,24 @@ public class AnnonceStore {
             rs.getString("photos")
         );
     }
+
+    public void changerStatut(Long id, String statut) {
+        java.util.Set<String> statutsAutorises =
+                java.util.Set.of("DISPONIBLE", "RESERVE", "VENDU");
+
+        String nouveauStatut = statut == null
+                ? ""
+                : statut.trim().toUpperCase();
+
+        if (!statutsAutorises.contains(nouveauStatut)) {
+            throw new IllegalArgumentException("Statut non autorisé");
+        }
+
+        jdbc.update(
+            "UPDATE annonces SET statut = ? WHERE id = ?",
+            nouveauStatut,
+            id
+        );
+    }
+
 }

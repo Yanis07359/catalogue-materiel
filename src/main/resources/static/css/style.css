@@ -1671,3 +1671,71 @@ pre {
     font-family: Arial, sans-serif;
     line-height: 1;
 }
+
+/* Modification rapide du statut dans l'administration */
+.admin-status-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-status-select {
+    min-height: 40px;
+    padding: 8px 32px 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    color: #0f172a;
+    background: #ffffff;
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.admin-status-select.status-disponible {
+    border-color: #86efac;
+    color: #166534;
+    background: #f0fdf4;
+}
+
+.admin-status-select.status-reserve {
+    border-color: #fde68a;
+    color: #92400e;
+    background: #fffbeb;
+}
+
+.admin-status-select.status-vendu {
+    border-color: #cbd5e1;
+    color: #475569;
+    background: #f1f5f9;
+}
+
+.admin-status-button {
+    min-height: 40px;
+    padding: 8px 14px;
+    border: 0;
+    border-radius: 9px;
+    color: #ffffff;
+    background: #2563eb;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 750;
+}
+
+.admin-status-button:hover {
+    background: #1d4ed8;
+}
+
+@media (max-width: 700px) {
+    .admin-status-form {
+        min-width: 140px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-status-select,
+    .admin-status-button {
+        width: 100%;
+    }
+}
+

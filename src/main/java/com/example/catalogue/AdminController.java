@@ -162,6 +162,16 @@ public class AdminController {
         }
     }
 
+
+    @PostMapping("/annonces/{id}/statut")
+    public String changerStatut(
+            @PathVariable Long id,
+            @RequestParam String statut) {
+
+        annonceStore.changerStatut(id, statut);
+        return "redirect:/admin/annonces";
+    }
+
     @PostMapping("/annonces/{id}/supprimer")
     public String supprimerAnnonce(
             @PathVariable Long id

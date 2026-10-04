@@ -64,7 +64,37 @@
                 <td th:text="${annonce.titre}"></td>
                 <td th:text="${annonce.categorie}"></td>
                 <td th:text="${annonce.prix + ' €'}"></td>
-                <td th:text="${annonce.statut}"></td>
+                <td>
+    <form class="admin-status-form"
+          method="post"
+          th:action="@{/admin/annonces/{id}/statut(id=${annonce.id})}">
+
+        <select class="admin-status-select"
+                name="statut"
+                th:classappend="${annonce.statut == 'DISPONIBLE'} ? ' status-disponible' :
+                               (${annonce.statut == 'RESERVE'} ? ' status-reserve' : ' status-vendu')">
+
+            <option value="DISPONIBLE"
+                    th:selected="${annonce.statut == 'DISPONIBLE'}">
+                Disponible
+            </option>
+
+            <option value="RESERVE"
+                    th:selected="${annonce.statut == 'RESERVE'}">
+                Réservé
+            </option>
+
+            <option value="VENDU"
+                    th:selected="${annonce.statut == 'VENDU'}">
+                Vendu
+            </option>
+        </select>
+
+        <button class="admin-status-button" type="submit">
+            Modifier
+        </button>
+    </form>
+</td>
 
                 <td class="actions-tableau">
                     <a th:href="@{/admin/annonces/{id}/modifier(id=${annonce.id})}">
