@@ -2211,66 +2211,52 @@ header a:hover,
 
 /* YNS-PHOTOS-ANNONCE-DEBUT */
 
-/*
- * Optimisation uniquement pour les photos de la page détaillée.
- * Les images des cartes d'annonces ne sont pas concernées.
- */
-
+/* Galerie équilibrée sur ordinateur */
 .detail .galerie {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    align-items: start;
+    gap: 18px;
+    align-items: stretch;
 }
 
-.detail .galerie img {
+.detail .galerie img,
+.detail .galerie img:first-child {
+    grid-column: auto;
     display: block;
     width: 100%;
-    height: 250px;
-    padding: 6px;
+    height: clamp(280px, 30vw, 390px);
+    padding: 8px;
+    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     object-fit: contain;
     object-position: center;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    background-color: #f8fafc;
+    box-sizing: border-box;
 }
 
-/* Photo principale */
-.detail .galerie img:first-child {
+/* Une seule photo : elle reste centrée */
+.detail .galerie img:only-child {
     grid-column: 1 / -1;
-    height: min(620px, 70vh);
+    width: min(720px, 100%);
+    justify-self: center;
 }
 
-/* Adaptation pour téléphone et tablette */
+/* Téléphone et tablette */
 @media (max-width: 760px) {
     .detail .galerie {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 14px;
     }
 
     .detail .galerie img,
-    .detail .galerie img:first-child {
+    .detail .galerie img:first-child,
+    .detail .galerie img:only-child {
         grid-column: auto;
         width: 100%;
         height: auto;
-        max-height: 72vh;
-        padding: 4px;
+        max-height: 70vh;
+        padding: 5px;
         object-fit: contain;
-        border-radius: 9px;
-    }
-}
-
-/* Très petits téléphones */
-@media (max-width: 420px) {
-    .detail .galerie {
-        gap: 10px;
-    }
-
-    .detail .galerie img,
-    .detail .galerie img:first-child {
-        max-height: 68vh;
-        padding: 3px;
-        border-radius: 8px;
     }
 }
 
