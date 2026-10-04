@@ -37,18 +37,25 @@ public class SiteController {
 
     @GetMapping("/")
     public String accueil(Model model) {
-        List<Annonce> recentes = annonceStore.findRecentes(2);
+        List<Annonce> toutes = annonceStore.findAll();
 
-        var idsRecents = recentes.stream()
+        List<Annonce> recentes = toutes.stream()
+                .filter(a -> a.statut() != null)
+                .filter(a -> a.statut().trim().equalsIgnoreCase("DISPONIBLE"))
+                .sorted((a, b) -> Long.compare(b.id(), a.id()))
+                .limit(2)
+                .toList();
+
+        List<Long> idsRecentes = recentes.stream()
                 .map(Annonce::id)
-                .collect(java.util.stream.Collectors.toSet());
+                .toList();
 
-        List<Annonce> autresAnnonces = annonceStore.findAll().stream()
-                .filter(annonce -> !idsRecents.contains(annonce.id()))
+        List<Annonce> autres = toutes.stream()
+                .filter(a -> !idsRecentes.contains(a.id()))
                 .toList();
 
         model.addAttribute("annonces", recentes);
-        model.addAttribute("autresAnnonces", autresAnnonces);
+        model.addAttribute("autresAnnonces", autres);
 
         return "index";
     }
