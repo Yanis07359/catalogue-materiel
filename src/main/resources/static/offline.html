@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1f33">
+    <title>Connexion indisponible - YNS Equipements</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #0f172a;
+            background: #f4f6f8;
+        }
+
+        .offline-card {
+            width: 100%;
+            max-width: 430px;
+            padding: 32px 24px;
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(15, 23, 42, 0.12);
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 18px;
+            border-radius: 22px;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            color: #0b1f33;
+            font-size: 1.45rem;
+        }
+
+        p {
+            margin: 0 0 22px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        button {
+            min-height: 46px;
+            padding: 11px 22px;
+            border: 0;
+            border-radius: 10px;
+            color: #ffffff;
+            background: #2563eb;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="offline-card">
+        <img src="/images/pwa-icon-192.png" alt="YNS Equipements">
+        <h1>Connexion indisponible</h1>
+        <p>
+            Vérifiez votre connexion Internet, puis essayez de nouveau.
+        </p>
+        <button type="button" onclick="window.location.reload()">
+            Réessayer
+        </button>
+    </main>
+</body>
+</html>

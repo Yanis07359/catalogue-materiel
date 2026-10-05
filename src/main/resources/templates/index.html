@@ -13,6 +13,24 @@
           th:href="@{/favicon.png(v=1791073844)}"
           href="/favicon.png?v=1791073844">
     <meta name="google-site-verification" content="PrpxNcOgJk1kzHzQBmBq67g9d8kBnMuCOZJBA1NwTVU">
+
+    <!-- Application mobile PWA -->
+    <link rel="manifest"
+          th:href="@{/manifest.webmanifest}"
+          href="/manifest.webmanifest">
+
+    <link rel="apple-touch-icon"
+          th:href="@{/images/pwa-icon-192.png}"
+          href="/images/pwa-icon-192.png">
+
+    <meta name="theme-color" content="#0b1f33">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent">
+    <meta name="apple-mobile-web-app-title"
+          content="YNS Equipements">
+
 </head>
 <body>
 
@@ -388,6 +406,12 @@
 </main>
 
 <footer th:replace="~{fragments :: footer}"></footer>
+
+
+    <!-- Activation de l'application PWA -->
+    <script th:src="@{/js/pwa.js}"
+            src="/js/pwa.js"
+            defer></script>
 
 </body>
 </html>
