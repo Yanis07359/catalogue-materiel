@@ -5668,3 +5668,80 @@ nav.yns-public-menu-panel > a:hover {
 }
 
 /* YNS-DISTANCE-CONTACT-MOBILE-FIN */
+
+/* YNS-FORMULAIRE-RECHERCHE-MOBILE-DEBUT */
+@media (max-width: 650px) {
+  .yns-request-page {
+    padding: 14px 10px 28px;
+  }
+
+  .yns-request-card {
+    width: 100%;
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+
+  .yns-request-kicker {
+    margin-bottom: 7px;
+    font-size: 0.72rem;
+  }
+
+  .yns-request-card h1 {
+    margin-bottom: 8px;
+    font-size: clamp(1.55rem, 8vw, 2rem);
+    line-height: 1.1;
+  }
+
+  .yns-request-intro {
+    margin-bottom: 18px;
+    font-size: 0.94rem;
+    line-height: 1.5;
+  }
+
+  .yns-form-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .yns-request-form label {
+    font-size: 0.88rem;
+  }
+
+  .yns-request-form input,
+  .yns-request-form textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+
+  .yns-request-form textarea {
+    min-height: 115px;
+    resize: vertical;
+  }
+
+  .yns-price-input span {
+    left: 12px;
+  }
+
+  .yns-price-input input {
+    padding-left: 34px;
+  }
+
+  .yns-form-note,
+  .yns-form-error {
+    font-size: 0.8rem;
+  }
+
+  .yns-primary-button {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 5px;
+    padding: 13px 16px;
+    font-size: 1rem;
+    border-radius: 14px;
+  }
+}
+/* YNS-FORMULAIRE-RECHERCHE-MOBILE-FIN */
+
