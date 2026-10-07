@@ -33,6 +33,7 @@ public class CatalogueApplication {
                     "DISPONIBLE",
                     "https://www.vinted.fr/",
                     "https://www.leboncoin.fr/",
+                    "",
                     """
                     https://images.unsplash.com/photo-1516035069371-29a1b244cc32
                     https://images.unsplash.com/photo-1502982720700-bfff97f2ecac
@@ -54,6 +55,7 @@ public class CatalogueApplication {
                     "DISPONIBLE",
                     "",
                     "https://www.leboncoin.fr/",
+                    "",
                     """
                     https://images.unsplash.com/photo-1591488320449-011701bb6704
                     """
@@ -73,6 +75,7 @@ public class CatalogueApplication {
                     """,
                     "DISPONIBLE",
                     "https://www.vinted.fr/",
+                    "",
                     "",
                     """
                     https://images.unsplash.com/photo-1590602847861-f357a9332bbc

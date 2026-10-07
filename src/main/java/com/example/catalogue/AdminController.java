@@ -86,6 +86,7 @@ public class AdminController {
             @RequestParam String statut,
             @RequestParam(required = false) String lienVinted,
             @RequestParam(required = false) String lienLeboncoin,
+            @RequestParam(required = false) String lienSubito,
             @RequestParam(required = false) String photosUrls,
             @RequestParam(required = false) String photosActuelles,
             @RequestParam(required = false) MultipartFile[] images,
@@ -127,6 +128,7 @@ public class AdminController {
                 statut,
                 valeurOuVide(lienVinted),
                 valeurOuVide(lienLeboncoin),
+                valeurOuVide(lienSubito),
                 String.join("\n", photos)
             );
 
@@ -145,6 +147,7 @@ public class AdminController {
                 statut,
                 valeurOuVide(lienVinted),
                 valeurOuVide(lienLeboncoin),
+                valeurOuVide(lienSubito),
                 valeurOuVide(photosActuelles)
             );
 

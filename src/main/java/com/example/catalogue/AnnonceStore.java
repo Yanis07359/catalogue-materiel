@@ -73,14 +73,15 @@ public class AnnonceStore {
             String statut,
             String lienVinted,
             String lienLeboncoin,
+            String lienSubito,
             String photos
     ) {
         if (id == null) {
             jdbc.update("""
                 INSERT INTO annonces
                 (titre, categorie, etat, prix, description, statut,
-                 lien_vinted, lien_leboncoin, photos)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 lien_vinted, lien_leboncoin, lien_subito, photos)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 titre,
                 categorie,
@@ -90,6 +91,7 @@ public class AnnonceStore {
                 statut,
                 lienVinted,
                 lienLeboncoin,
+                lienSubito,
                 photos
             );
         } else {
@@ -103,6 +105,7 @@ public class AnnonceStore {
                     statut = ?,
                     lien_vinted = ?,
                     lien_leboncoin = ?,
+                    lien_subito = ?,
                     photos = ?
                 WHERE id = ?
                 """,
@@ -114,6 +117,7 @@ public class AnnonceStore {
                 statut,
                 lienVinted,
                 lienLeboncoin,
+                lienSubito,
                 photos,
                 id
             );
@@ -137,6 +141,7 @@ public class AnnonceStore {
             rs.getString("statut"),
             rs.getString("lien_vinted"),
             rs.getString("lien_leboncoin"),
+            rs.getString("lien_subito"),
             rs.getString("photos")
         );
     }

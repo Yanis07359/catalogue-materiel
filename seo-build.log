@@ -1,0 +1,39 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------------------< [0;36mcom.example:catalogue-materiel[0;1m >-------------------[m
+[[1;34mINFO[m] [1mBuilding Catalogue matériel 1.0.0[m
+[[1;34mINFO[m]   from pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.4.0:clean[m [1m(default-clean)[m @ [36mcatalogue-materiel[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/ubuntu/catalogue-materiel/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.3.1:resources[m [1m(default-resources)[m @ [36mcatalogue-materiel[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] Copying 44 resources from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.13.0:compile[m [1m(default-compile)[m @ [36mcatalogue-materiel[0;1m ---[m
+[[1;34mINFO[m] Recompiling the module because of [1mchanged source code[m.
+[[1;34mINFO[m] Compiling 14 source files with javac [debug parameters release 21] to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.3.1:testResources[m [1m(default-testResources)[m @ [36mcatalogue-materiel[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/ubuntu/catalogue-materiel/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.13.0:testCompile[m [1m(default-testCompile)[m @ [36mcatalogue-materiel[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.2:test[m [1m(default-test)[m @ [36mcatalogue-materiel[0;1m ---[m
+[[1;34mINFO[m] Tests are skipped.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.4.2:jar[m [1m(default-jar)[m @ [36mcatalogue-materiel[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/ubuntu/catalogue-materiel/target/catalogue-materiel-1.0.0.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mspring-boot:3.4.2:repackage[m [1m(repackage)[m @ [36mcatalogue-materiel[0;1m ---[m
+[[1;34mINFO[m] Replacing main artifact /home/ubuntu/catalogue-materiel/target/catalogue-materiel-1.0.0.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[[1;34mINFO[m] The original artifact has been renamed to /home/ubuntu/catalogue-materiel/target/catalogue-materiel-1.0.0.jar.original
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  1.682 s
+[[1;34mINFO[m] Finished at: 2026-10-05T10:15:08Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

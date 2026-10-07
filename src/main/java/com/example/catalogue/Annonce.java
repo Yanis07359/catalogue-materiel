@@ -14,6 +14,7 @@ public record Annonce(
         String statut,
         String lienVinted,
         String lienLeboncoin,
+        String lienSubito,
         String photos
 ) {
     public List<String> listePhotos() {
@@ -39,6 +40,10 @@ public record Annonce(
 
     public boolean aLeboncoin() {
         return lienLeboncoin != null && !lienLeboncoin.isBlank();
+    }
+
+    public boolean aSubito() {
+        return lienSubito != null && !lienSubito.isBlank();
     }
 
     public String statutCss() {

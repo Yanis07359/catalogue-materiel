@@ -169,6 +169,12 @@
                name="lienLeboncoin"
                th:value="${annonce != null ? annonce.lienLeboncoin : ''}">
 
+        <label for="lienSubito">Lien Subito</label>
+        <input id="lienSubito"
+               type="url"
+               name="lienSubito"
+               th:value="${annonce != null ? annonce.lienSubito : ''}">
+
         <button type="submit"
                 class="btn btn-primary btn-block">
             Enregistrer

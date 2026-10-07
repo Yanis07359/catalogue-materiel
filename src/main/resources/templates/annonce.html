@@ -104,12 +104,15 @@
 
             <div class="actions">
 
-            <a class="yns-offer-button"
-               th:if="${annonce.statut == 'DISPONIBLE'}"
-               th:href="@{/annonce/{id}/offre(id=${annonce.id})}">
-                Faire une offre
-            </a>
+                <form th:if="${annonce.statut == 'DISPONIBLE'}"
+                      th:action="@{/panier/ajouter/{id}(id=${annonce.id})}"
+                      method="post">
 
+                    <button class="btn btn-outline btn-block"
+                            type="submit">
+                        Ajouter à ma sélection
+                    </button>
+                </form>
 
                 <form th:if="${annonce.statut == 'DISPONIBLE'}"
                       th:action="@{/reservation/directe/{id}(id=${annonce.id})}"
@@ -121,23 +124,18 @@
                     </button>
                 </form>
 
+            <a class="yns-offer-button"
+               th:if="${annonce.statut == 'DISPONIBLE'}"
+               th:href="@{/annonce/{id}/offre(id=${annonce.id})}">
+                Faire une offre
+            </a>
 
-                <form th:if="${annonce.statut == 'DISPONIBLE'}"
-                      th:action="@{/panier/ajouter/{id}(id=${annonce.id})}"
-                      method="post">
-
-                    <button class="btn btn-outline btn-block"
-                            type="submit">
-                        Ajouter à ma sélection
-                    </button>
-                </form>
-
-                <a th:if="${annonce.aVinted()}"
-                   th:href="${annonce.lienVinted}"
+                <a th:if="${annonce.aSubito()}"
+                   th:href="${annonce.lienSubito}"
                    target="_blank"
                    rel="noopener noreferrer"
-                   class="btn btn-vinted btn-block">
-                    Voir sur Vinted
+                   class="btn btn-subito btn-block">
+                    Voir sur Subito
                 </a>
 
                 <a th:if="${annonce.aLeboncoin()}"
@@ -146,6 +144,14 @@
                    rel="noopener noreferrer"
                    class="btn btn-leboncoin btn-block">
                     Voir sur Leboncoin
+                </a>
+
+                <a th:if="${annonce.aVinted()}"
+                   th:href="${annonce.lienVinted}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-vinted btn-block">
+                    Voir sur Vinted
                 </a>
             </div>
 

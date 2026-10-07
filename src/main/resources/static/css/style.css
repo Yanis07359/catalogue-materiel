@@ -202,6 +202,11 @@ select {
     color: white;
 }
 
+.btn-subito {
+    background: #e30613;
+    color: white;
+}
+
 .btn-block {
     width: 100%;
 }
@@ -4279,6 +4284,12 @@ nav.yns-public-menu-panel > a:hover {
     .detail .actions .btn-leboncoin {
         color: #ffffff !important;
         background: #ff6e14 !important;
+    }
+
+    /* Subito */
+    .detail .actions .btn-subito {
+        color: #ffffff !important;
+        background: #e30613 !important;
     }
 
     /* Message de paiement */
